@@ -1,7 +1,13 @@
 import React from 'react';
+import Input from './Input';
 
 const Form = () => (
-    < form >
+    <form>
+        <Input
+            type='text'
+            label='Business Name'
+            placeholder='ABC Company'
+        />
         <div class="form-group  mb-4">
             <label for="businessName">Business Name</label>
             <input type="text" class="form-control" id="businessName" placeholder="ABC Company" />
@@ -25,7 +31,7 @@ const Form = () => (
         <div class="mb-4">
             <label>
                 Are you subject to:
-            <div class="form-check">
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                     <label class="form-check-label check-label" for="defaultCheck1">
                         PCI/DCI Compliance
@@ -41,7 +47,7 @@ const Form = () => (
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                     <label class="form-check-label check-label" for="defaultCheck1">
                         None
-      </label>
+                </label>
                 </div>
             </label>
         </div>
