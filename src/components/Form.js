@@ -10,21 +10,23 @@ const Form = () => (
             placeholder='ABC Company'
         />
 
-        <div class="form-group  mb-4">
-            <label for="businessType">Business Type</label>
-            <input type="text" class="form-control" id="businessType" placeholder="Search for business type" />
-        </div>
+        <Input
+            type='text'
+            label='Business Type'
+            placeholder='Search for business type'
+        />
 
-        <div class="form-group  mb-4">
-            <label for="projectedRevenue">Projected Revenue (Next 12 Months)</label>
-            <input type="number" class="form-control" id="projectedRevenue" placeholder="e.g., $400,000" />
-        </div>
+        <Input
+            type='number'
+            label='Projected Revenue (Next 12 Months)'
+            placeholder='e.g., $400,000'
+        />
 
-        <div class="form-group  mb-4">
-            <label for="numberEmployees">Number of Employees</label>
-            <input type="number" class="form-control" id="numberEmployees" placeholder='e.g., 10' />
-        </div>
-
+        <Input
+            type='number'
+            label='Number of Employees'
+            placeholder='e.g., 10'
+        />
 
 
         <CheckBox
@@ -46,10 +48,11 @@ const Form = () => (
             </div>
         </div>
 
-        <div class="form-group mb-4">
-            <label for="lengthInsured">Since when have you had continuous Cyber Insurance coverage (retroactive date)?</label>
-            <input type="date" class="form-control" id="lengthInsured" placeholder='e.g., 10' />
-        </div>
+        <Input
+            type='date'
+            label='Since when have you had continuous Cyber Insurance coverage (retroactive date)?'
+            placeholder='e.g., 10'
+        />
 
         <div class="my-5">
             <button type="button" class="continue-btn">
