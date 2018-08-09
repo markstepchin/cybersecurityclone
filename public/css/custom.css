@@ -1,0 +1,210 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+body {
+    margin-bottom: 60px; /* Margin bottom by footer height */
+    /* font-family: 'Montserrat', sans-serif !important; */
+    color: #4c4c4c;
+  }
+
+  h1 {
+    color: red;
+  }
+
+
+p,
+select,
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"] {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.check-label  {
+  font-size: 0.875rem;
+  font-weight: 400;
+
+}
+
+label {
+  font-weight: 500;
+  color: #4c4c4c;
+}
+
+.footer1 {
+  background-color: #182032;
+  border-bottom: 1px solid #8fbdd4;
+  color: white;
+  font-size: 1.625rem;
+  font-weight: 200;
+  padding: 4rem 0rem 4rem 4rem;
+}
+
+.footer2 {
+  background-color: #1f2a41;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+  }
+
+header {
+    background-color: #182032;
+    border-bottom: 1px solid #8fbdd4;
+    color: white;
+  }
+
+
+
+.green-text {
+  color: #b1cf18;
+}
+
+.white-text {
+  color: white;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+
+
+
+
+/* nav circle styles */
+.small-circle {
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: .5rem
+}
+
+.large-circle {
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-size: .75rem;
+}
+
+.current-circle {
+  background-color: #b1cf18;
+  color: white;
+}
+
+.incomplete-circle {
+  background-color: #6b717d;
+  color: #1f2a41;
+}
+
+.complete-circle {
+  background-color: #438162;
+  color: white;
+}
+
+.circle {
+  text-align: center;
+  border-radius: 50%;
+  margin: 0rem .5rem;
+}
+/* /nav circle styles */
+
+
+
+
+
+/* prgress bar */
+.progress-nav {
+  background-color: #1f2a41;
+}
+
+.lg-progress-text {
+  font-size: .75rem;
+}
+
+.sm-progress-text {
+  font-size: .5rem;
+}
+
+.current-text {
+  color: white;
+}
+
+.complete-text {
+  color: white;
+}
+
+.incomplete-text {
+  color: #6b717d;
+}
+
+.empty-nav-height {
+  height: 96px;
+}
+/* /prgress bar */
+
+
+
+
+
+
+.continue-btn {
+  background-color: #8fbf30 !important;
+  text-shadow: 0 1px 0px rgba(0,0,0,0.1);
+  color: white;
+  border-radius: 1px;
+  padding: 1.5rem 2rem;
+  text-transform: uppercase;
+}
+
+.learn-more-btn {
+  background-color: #b1cf18 !important;
+  border-radius: 2px;
+  bottom: 2.5rem;
+  color: white;
+  font-size: 1rem;
+  line-height: 2.5rem;
+  width: 90%;
+}
+
+header p {
+  margin: 0px;
+}
+
+header button {
+  background-color: #8fbf30;
+  border: none;
+  color: white;
+  margin-top: .25rem;
+}
+
+
+/* card styles */
+.card {
+  margin-left: 0px !important;
+}
+/* card styles */
+
+
+.hiscox {
+  width: 50%;
+  height: auto
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 20rem
+}
+
