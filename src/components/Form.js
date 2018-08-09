@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from './Input';
-import CheckBox from './CheckBox';
+import CheckBoxGroup from './CheckBoxGroup';
 
 const Form = () => (
     <form>
@@ -29,7 +29,7 @@ const Form = () => (
         />
 
 
-        <CheckBox
+        <CheckBoxGroup
             label='Are you subject to:'
             option1='PCI/DCI Compliance'
             option2='HIPAA/HITECH Compliance'
