@@ -11,10 +11,6 @@ body {
     color: #4c4c4c;
   }
 
-  h1 {
-    color: green;
-  }
-
  
 p,
 select,
@@ -29,7 +25,6 @@ input[type="email"] {
 .check-label  {
   font-size: 0.875rem;
   font-weight: 400;
-
 }
 
 label {
