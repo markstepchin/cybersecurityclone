@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import ProgressBar from './components/ProgressBar';
-import Form from './components/Form';
+import PageContent from './components/PageContent';
 import Footer from './components/Footer';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
       <div>
         <Header />
         <ProgressBar />
-        <Form />
+        <PageContent />
         <Footer />
       </div >
     );

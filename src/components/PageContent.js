@@ -1,9 +1,10 @@
 import React from 'react';
+import Info from './Info';
 
-const Form = () => (
+const PageContent = () => (
     <div class="container border pt-5">
         <div class="row">
-            <div class="col pl-5">
+            <div class="col-lg-8 pl-5">
                 <h3 class='mb-4'>Let's get started</h3>
             </div>
         </div>
@@ -84,22 +85,9 @@ const Form = () => (
             </div>
             {/* <!-- /col-7 --> */}
 
-            {/* <!-- guarantee --> */}
             <div class="col-lg-4 border-left px-5">
-                <div class='text-center border-bottom d-none d-lg-block pb-4'>
-                    <h6>Secure Your Business</h6>
-                    <h1>0%</h1>
-                </div>
-                <div class='my-5'>
-                    <h5>We've got your back!</h5>
-                    <p>We were taught to treat people the way we want to be treated. We'll never sell or share your info with
-                        any third parties because we wouldn't want our info sold or shared with strangers. Your info will
-                        only be used by us to connect with you and to match you with the best cyber insurance for your business.
-                        That's it. For more information, please review our
-                        <a href="https://cyberpolicy.com/privacy" target="_blank"> Privacy Policy</a>.</p>
-                </div>
+                <Info />
             </div>
-            {/* <!-- guarantee --> */}
 
         </div>
         {/* <!-- /row --> */}
@@ -107,4 +95,4 @@ const Form = () => (
     </div>
 )
 
-export default Form;
+export default PageContent;
