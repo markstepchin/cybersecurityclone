@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Info = () => (
+const SideBar = () => (
     <React.Fragment>
 
         <div class='text-center border-bottom d-none d-lg-block pb-4'>
@@ -18,4 +18,4 @@ const Info = () => (
     </React.Fragment>
 )
 
-export default Info;
+export default SideBar;
