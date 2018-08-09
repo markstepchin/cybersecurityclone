@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import CheckBox from './CheckBox';
 
 const Form = () => (
     <form>
@@ -8,10 +9,6 @@ const Form = () => (
             label='Business Name'
             placeholder='ABC Company'
         />
-        <div class="form-group  mb-4">
-            <label for="businessName">Business Name</label>
-            <input type="text" class="form-control" id="businessName" placeholder="ABC Company" />
-        </div>
 
         <div class="form-group  mb-4">
             <label for="businessType">Business Type</label>
@@ -28,33 +25,18 @@ const Form = () => (
             <input type="number" class="form-control" id="numberEmployees" placeholder='e.g., 10' />
         </div>
 
-        <div class="mb-4">
-            <label>
-                Are you subject to:
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                    <label class="form-check-label check-label" for="defaultCheck1">
-                        PCI/DCI Compliance
-                </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                    <label class="form-check-label check-label" for="defaultCheck1">
-                        HIPAA/HITECH Compliance
-                </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                    <label class="form-check-label check-label" for="defaultCheck1">
-                        None
-                </label>
-                </div>
-            </label>
-        </div>
+
+
+        <CheckBox
+            label='Are you subject to:'
+            option1='PCI/DCI Compliance'
+            option2='HIPAA/HITECH Compliance'
+            option3='None'
+        />
 
         <label>
             Have you previously purchased a Cyber Insurance Policy?
-    </label>
+        </label>
         <div class="row mb-4">
             <div class="col-6">
                 <button type="button" class="btn btn-light btn-block py-3">Yes</button>
