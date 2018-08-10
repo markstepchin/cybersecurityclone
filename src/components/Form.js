@@ -4,6 +4,8 @@ import CheckBoxGroup from './CheckBoxGroup';
 import ButtonGroup from './ButtonGroup';
 import NextButton from './NextButton';
 
+import CheckBoxGroup1 from './CheckBoxGroup1';
+
 const Form = () => (
     <form>
         <Input
@@ -32,9 +34,7 @@ const Form = () => (
 
         <CheckBoxGroup
             label='Are you subject to:'
-            option1='PCI/DCI Compliance'
-            option2='HIPAA/HITECH Compliance'
-            option3='None'
+            options={['PCI/DCI Compliance', 'HIPAA/HITECH Compliance', 'None']}
         />
 
         <ButtonGroup

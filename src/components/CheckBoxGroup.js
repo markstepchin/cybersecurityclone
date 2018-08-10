@@ -4,9 +4,8 @@ const CheckBoxGroup = (props) => (
     <div class="mb-4">
         <label>
             {props.label}
-            <CheckBoxInput option={props.option1} />
-            <CheckBoxInput option={props.option2} />
-            <CheckBoxInput option={props.option3} />
+            {props.label}
+            {props.options.map(currentOption => (<CheckBoxInput option={currentOption} />))}
         </label>
     </div>
 )
