@@ -4,7 +4,7 @@ import CheckBoxGroup from './CheckBoxGroup';
 import ButtonGroup from './ButtonGroup';
 import NextButton from './NextButton';
 
-const Form = () => (
+const InfoForm = () => (
     <form>
         <Input
             type='text'
@@ -51,4 +51,4 @@ const Form = () => (
     </form >
 )
 
-export default Form;
+export default InfoForm;
