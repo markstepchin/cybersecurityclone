@@ -4,8 +4,6 @@ import CheckBoxGroup from './CheckBoxGroup';
 import ButtonGroup from './ButtonGroup';
 import NextButton from './NextButton';
 
-import CheckBoxGroup1 from './CheckBoxGroup1';
-
 const Form = () => (
     <form>
         <Input
