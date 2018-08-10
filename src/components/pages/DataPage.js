@@ -16,6 +16,7 @@ const DataPage = () => (
         <SideBar 
             heading1='Keep going!'
             heading2="Is your business vulnerable?"
+            progress="50%"
             content="Did you know that 2016 was a record year for data breaches? The average total cost of a data breach grew
             to $4 million, crippling many businesses."
         />}

@@ -15,6 +15,7 @@ const OperationsPage = () => (
         <SideBar 
             heading1='Great Start'
             heading2="Did you know?"
+            progress="25%"
             content="Sixty percent of small businesses close within 6 months of a data breach. With CyberPolicy, you're protected
             in the event of a cyber attack, letting you focus on getting back to work."
         />}

@@ -17,6 +17,7 @@ const ContactPage = () => (
         <SideBar 
             heading1='Almost done'
             heading2="We'll take it from here!"
+            progress="75%"
             content="Thanks for the info! Now sit back, put your feet up and we'll shop multiple leading carriers to match
             you with the best cyber insurance policies for your business. Don't forget, we're in the business
             of protecting your data. You can be guaranteed that we'll never sell or share your info with any
