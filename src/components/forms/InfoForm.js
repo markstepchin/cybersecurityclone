@@ -16,7 +16,7 @@ class InfoForm extends React.Component {
             subjectToPCI: false,
             subjectToHIPPA: false,
             hadPreviousInsurance: false,
-            previousInsuranceData: '',
+            previousInsuranceDate: '',
         }
     }
 
@@ -35,18 +35,24 @@ class InfoForm extends React.Component {
                     type='text'
                     label='Business Type'
                     placeholder='Search for business type'
+                    value={this.state.businessType}
+                    onChange={event => this.setState({ businessType: event.target.value })}
                 />
 
                 <Input
                     type='number'
                     label='Projected Revenue (Next 12 Months)'
                     placeholder='e.g., $400,000'
+                    value={this.state.projectedRevenue}
+                    onChange={event => this.setState({ projectedRevenue: event.target.value })}
                 />
 
                 <Input
                     type='number'
                     label='Number of Employees'
                     placeholder='e.g., 10'
+                    value={this.state.numEmployees}
+                    onChange={event => this.setState({ numEmployees: event.target.value })}
                 />
 
                 <CheckBoxGroup
@@ -64,6 +70,8 @@ class InfoForm extends React.Component {
                     type='date'
                     label='Since when have you had continuous Cyber Insurance coverage (retroactive date)?'
                     placeholder='e.g., 10'
+                    value={this.state.previousInsuranceDate}
+                    onChange={event => this.setState({ previousInsuranceDate: event.target.value })}
                 />
 
                 <NextButton btnText='Continue' />
