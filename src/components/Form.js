@@ -2,6 +2,7 @@ import React from 'react';
 import Input from './Input';
 import CheckBoxGroup from './CheckBoxGroup';
 import ButtonGroup from './ButtonGroup';
+import NextButton from './NextButton';
 
 const Form = () => (
     <form>
@@ -48,12 +49,7 @@ const Form = () => (
             placeholder='e.g., 10'
         />
 
-        <div class="my-5">
-            <button type="button" class="continue-btn">
-                Continue
-            <i class="fas fa-chevron-right"></i>
-            </button>
-        </div>
+        <NextButton btnText='Continue' />
     </form >
 )
 
