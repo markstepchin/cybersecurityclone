@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from './Input';
 import CheckBoxGroup from './CheckBoxGroup';
+import ButtonGroup from './ButtonGroup';
 
 const Form = () => (
     <form>
@@ -28,7 +29,6 @@ const Form = () => (
             placeholder='e.g., 10'
         />
 
-
         <CheckBoxGroup
             label='Are you subject to:'
             option1='PCI/DCI Compliance'
@@ -36,17 +36,11 @@ const Form = () => (
             option3='None'
         />
 
-        <label>
-            Have you previously purchased a Cyber Insurance Policy?
-        </label>
-        <div class="row mb-4">
-            <div class="col-6">
-                <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-            </div>
-            <div class="col-6">
-                <button type="button" class="btn btn-light btn-block py-3">No</button>
-            </div>
-        </div>
+        <ButtonGroup
+            label='Have you previously purchased a Cyber Insurance Policy?'
+            button1Text='Yes'
+            button2Text='No'
+        />
 
         <Input
             type='date'
