@@ -1,7 +1,8 @@
 import React from 'react';
-import PageLayout from './PageLayout';
-import InfoForm from './InfoForm';
-import SideBar from './SideBar';
+import PageLayout from '../layout/PageLayout';
+import SideBar from '../layout/SideBar';
+import InfoForm from '../forms/InfoForm';
+
 
 const InfoPage = () => (
     <PageLayout

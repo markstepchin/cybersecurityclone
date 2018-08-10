@@ -2,7 +2,7 @@ import React from 'react';
 import Input from './Input';
 import CheckBoxGroup from './CheckBoxGroup';
 import ButtonGroup from './ButtonGroup';
-import NextButton from './NextButton';
+import NextButton from '../layout/NextButton';
 
 const InfoForm = () => (
     <form>

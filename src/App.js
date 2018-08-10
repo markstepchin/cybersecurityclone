@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import ProgressBar from './components/ProgressBar';
-import InfoPage from './components/InfoPage';
-import Footer from './components/Footer';
+import Header from './components/layout/Header';
+import ProgressBar from './components/layout/ProgressBar';
+import InfoPage from './components/pages/InfoPage';
+import Footer from './components/layout/Footer';
 
 class App extends Component {
   render() {
