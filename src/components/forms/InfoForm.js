@@ -62,9 +62,11 @@ class InfoForm extends React.Component {
 
                 <ButtonGroup
                     label='Have you previously purchased a Cyber Insurance Policy?'
-                    button1Text='Yes'
-                    button2Text='No'
+                    response={this.state.hadPreviousInsurance}
+                    toggle={() => this.setState(prevState => ({ hadPreviousInsurance: !prevState.hadPreviousInsurance }))}
                 />
+                {/* // () => this.setState(prevState => ({ hadPreviousInsurance: !prevState.hadPreviousInsurance })) */}
+                {/* // how does this work???? */}
 
                 <Input
                     type='date'

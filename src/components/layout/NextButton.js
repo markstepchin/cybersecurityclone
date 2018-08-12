@@ -1,10 +1,10 @@
 import React from 'react';
 
 const NextButton = (props) => (
-    <div class="my-5">
-        <button type="button" class="continue-btn">
+    <div className="my-5">
+        <button type="button" className="continue-btn">
             {props.btnText}
-            <i class="fas fa-chevron-right"></i>
+            <i className="fas fa-chevron-right"></i>
         </button>
     </div>
 )

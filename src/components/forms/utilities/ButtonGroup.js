@@ -1,19 +1,55 @@
 import React from 'react';
 
-const ButtonGroup = (props) => (
+class ButtonGroup extends React.Component {
+
+    yesClick = () => {
+        if (!this.props.response) //if no, change
+            this.props.toggle();
+    }
+
+    noClick = () => {
+        if (this.props.response) //if yes, change
+            this.props.toggle();
+    }
+
+    render() {
+        return (
+            <ButtonGroupLayout
+                label={this.props.label}
+                response={this.props.response}
+                yesClick={this.yesClick}
+                noClick={this.noClick}
+            />
+        )
+    }
+}
+
+const ButtonGroupLayout = (props) => (
     <React.Fragment>
         <label>
             {props.label}
         </label>
-        <div class="row mb-4">
-            <div class="col-6">
-                <button type="button" class="btn btn-light btn-block py-3">{props.button1Text}</button>
+        <div className="row mb-4">
+            <div className="col-6">
+                <button
+                    type="button"
+                    className={`btn ${props.response ? 'btn-dark' : 'btn-light'} btn-block py-3`}
+                    onClick={props.yesClick}
+                >
+                    Yes
+                </button>
             </div>
-            <div class="col-6">
-                <button type="button" class="btn btn-light btn-block py-3">{props.button2Text}</button>
+            <div className="col-6">
+                <button
+                    type="button"
+                    className={`btn ${props.response ? 'btn-light' : 'btn-dark'} btn-block py-3`}
+                    onClick={props.noClick}
+                >
+                    No
+                </button>
             </div>
         </div>
-    </React.Fragment>
+    </React.Fragment >
 )
 
 export default ButtonGroup;

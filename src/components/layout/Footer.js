@@ -2,11 +2,11 @@ import React from 'react';
 
 const Footer = () => (
     <div>
-        <div class="footer1 container-fluid">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <span class='green-text'>CyberPolicy.</span>
+        <div className="footer1 container-fluid">
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <span className='green-text'>CyberPolicy.</span>
                         &nbsp;Plan. Prevent. Insure.
                     <small>™</small>
                     </div>
@@ -14,8 +14,8 @@ const Footer = () => (
             </div>
         </div>
 
-        <footer class="footer2 container-fluid text-center">
-            <small class="text-muted ">&copy; 2018 Mark Stepchin</small>
+        <footer className="footer2 container-fluid text-center">
+            <small className="text-muted ">&copy; 2018 Mark Stepchin</small>
         </footer>
     </div>
 )
