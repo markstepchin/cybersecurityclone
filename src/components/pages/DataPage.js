@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '../layout/PageLayout';
 import ProgressBarData from '../layout/ProgressBarData';
 import SideBar from '../layout/SideBar';
-import InfoForm from '../forms/InfoForm';
+import DataForm from '../forms/DataForm';
 
 
 const DataPage = () => (
@@ -14,7 +14,7 @@ const DataPage = () => (
             description="Understanding what steps your business currently takes to protect sensitive information helps us match you
             with the right insurance, making sure you're sufficiently covered."
             
-            form={<InfoForm />}
+            form={<DataForm />}
             sideBar={
             <SideBar 
                 heading1='Keep going!'

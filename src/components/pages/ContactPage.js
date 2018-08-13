@@ -2,7 +2,7 @@ import React from 'react';
 import PageLayout from '../layout/PageLayout';
 import ProgressBarContact from '../layout/ProgressBarContact';
 import SideBar from '../layout/SideBar';
-import InfoForm from '../forms/InfoForm';
+import ContactForm from '../forms/ContactForm';
 
 
 const ContactPage = () => (
@@ -15,7 +15,7 @@ const ContactPage = () => (
             contact info to verify that you are you, before showing you the real rates available for purchase for
             your business today."
             
-            form={<InfoForm />}
+            form={<ContactForm />}
             sideBar={
             <SideBar 
                 heading1='Almost done'

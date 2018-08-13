@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <OperationsPage />
+        <ContactPage />
         <Footer />
       </div >
     );
