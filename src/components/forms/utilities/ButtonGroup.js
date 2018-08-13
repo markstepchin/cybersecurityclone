@@ -2,14 +2,26 @@ import React from 'react';
 
 class ButtonGroup extends React.Component {
 
-    yesClick = () => {
-        if (!this.props.response) //if no, change
-            this.props.toggle();
+    yesColor = () => {
+        if (this.props.response === null)
+            return 'btn-light';
+
+        else if (this.props.response) //true
+            return 'btn-dark';
+
+        else                          //false
+            return 'btn-light';
     }
 
-    noClick = () => {
-        if (this.props.response) //if yes, change
-            this.props.toggle();
+    noColor = () => {
+        if (this.props.response === null)
+            return 'btn-light';
+
+        else if (this.props.response) //true
+            return 'btn-light';
+
+        else                          //false
+            return 'btn-dark';
     }
 
     render() {
@@ -17,8 +29,10 @@ class ButtonGroup extends React.Component {
             <ButtonGroupLayout
                 label={this.props.label}
                 response={this.props.response}
-                yesClick={this.yesClick}
-                noClick={this.noClick}
+                yesClick={this.props.yesClick}
+                yesColor={this.yesColor}
+                noClick={this.props.noClick}
+                noColor={this.noColor}
             />
         )
     }
@@ -33,7 +47,7 @@ const ButtonGroupLayout = (props) => (
             <div className="col-6">
                 <button
                     type="button"
-                    className={`btn ${props.response ? 'btn-dark' : 'btn-light'} btn-block py-3`}
+                    className={`btn ${props.yesColor()} btn-block py-3`}
                     onClick={props.yesClick}
                 >
                     Yes
@@ -42,7 +56,7 @@ const ButtonGroupLayout = (props) => (
             <div className="col-6">
                 <button
                     type="button"
-                    className={`btn ${props.response ? 'btn-light' : 'btn-dark'} btn-block py-3`}
+                    className={`btn ${props.noColor()} btn-block py-3`}
                     onClick={props.noClick}
                 >
                     No
