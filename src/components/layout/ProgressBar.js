@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ProgressBar = () => (
+const ProgressBar = (props) => (
     <div>
         <div className="container-fluid progress-nav text-uppercase d-flex justify-content-center">
 
             <div className="container d-none d-md-block" align='center'>
                 <div className="row mx-4">
                     <div className="col my-3" align='center'>
-                        <div className='circle current-circle large-circle inline-block'>1</div>
+                        <div className={`circle ${props.circle} large-circle inline-block`}>1</div>
                         <p className='lg-progress-text current-text'>businnes info</p>
                     </div>
                     <div className="col my-3" align='center'>
