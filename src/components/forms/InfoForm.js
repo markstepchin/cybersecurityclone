@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './utilities/Input';
+import CheckBoxInput from './utilities/CheckBoxInput';
 import CheckBoxGroup from './utilities/CheckBoxGroup';
 import ButtonGroup from './utilities/ButtonGroup';
 import NextButton from '../layout/NextButton';
@@ -57,9 +58,19 @@ class InfoForm extends React.Component {
 
                 <CheckBoxGroup
                     label='Are you subject to:'
-                    options={['PCI/DCI Compliance', 'HIPAA/HITECH Compliance']}
                     noneOption={true}
-                />
+                >
+                    <CheckBoxInput
+                        label='PCI/DCI Compliance'
+                        checked={this.state.subjectToPCI}
+                        onCheck={() => this.setState(prevState => ({ subjectToPCI: !prevState.subjectToPCI }))}
+                    />
+                    <CheckBoxInput
+                        label='HIPAA/HITECH Compliance'
+                        checked={this.state.subjectToHIPPA}
+                        onCheck={() => this.setState(prevState => ({ subjectToHIPPA: !prevState.subjectToHIPPA }))}
+                    />
+                </CheckBoxGroup >
 
                 <ButtonGroup
                     label='Have you previously purchased a Cyber Insurance Policy?'
