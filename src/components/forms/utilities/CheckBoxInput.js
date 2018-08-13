@@ -6,7 +6,7 @@ const CheckBoxInput = (props) => (
             className="form-check-input"
             type="checkbox"
             checked={props.checked}
-            onChange={props.onCheck} />
+            onChange={props.onChange} />
         <label className="form-check-label check-label">
             {props.label}
         </label>

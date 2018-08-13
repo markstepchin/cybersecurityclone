@@ -12,14 +12,32 @@ const CheckBoxGroup = (props) => (
             {props.children}
             {props.noneOption ? (
                 <CheckBoxInput
-                    label='None' />
+                    label='None'
+                    checked={noChildChecked(props.children)}
+                    onChange={() => uncheckChildren(props.children)}
+                />
             ) : null}
         </label>
     </div>
 )
 
-const anyChildChecked = (children) => {
-    return true;
+const uncheckChildren = (children) => {
+    React.Children.map(children, (child) => {
+        child.props.onChange();
+    })
+}
+
+const noChildChecked = (children) => {
+
+    let didntFindChecked = true;
+
+    React.Children.map(children, (child) => {
+        if (child.props.checked) {
+            didntFindChecked = false;
+        }
+    })
+
+    return didntFindChecked;
 }
 
 export default CheckBoxGroup;
