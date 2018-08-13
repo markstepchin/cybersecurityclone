@@ -57,7 +57,8 @@ class InfoForm extends React.Component {
 
                 <CheckBoxGroup
                     label='Are you subject to:'
-                    options={['PCI/DCI Compliance', 'HIPAA/HITECH Compliance', 'None']}
+                    options={['PCI/DCI Compliance', 'HIPAA/HITECH Compliance']}
+                    noneOption={true}
                 />
 
                 <ButtonGroup
@@ -65,8 +66,6 @@ class InfoForm extends React.Component {
                     response={this.state.hadPreviousInsurance}
                     toggle={() => this.setState(prevState => ({ hadPreviousInsurance: !prevState.hadPreviousInsurance }))}
                 />
-                {/* // () => this.setState(prevState => ({ hadPreviousInsurance: !prevState.hadPreviousInsurance })) */}
-                {/* // how does this work???? */}
 
                 <Input
                     type='date'

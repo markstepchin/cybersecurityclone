@@ -1,20 +1,27 @@
 import React from 'react';
+import CheckBoxInput from '../utilities/CheckBoxInput';
+
+/*
+Each checkbox is a true or false field
+The none field is a variable computed on the fly that displays and toggles the value of other fields
+
+
+*/
 
 const CheckBoxGroup = (props) => (
     <div className="mb-4">
         <label>
             {props.label}
-            {props.label}
-            {props.options.map(currentOption => (<CheckBoxInput option={currentOption} key={currentOption} />))}
-        </label>
-    </div>
-)
-
-const CheckBoxInput = (props) => (
-    <div className="form-check">
-        <input className="form-check-input" type="checkbox" value="" />
-        <label className="form-check-label check-label">
-            {props.option}
+            {props.options.map(currentOption => (
+                <CheckBoxInput
+                    text={currentOption}
+                    key={currentOption} />
+            ))}
+            {props.noneOption ? (
+                <CheckBoxInput
+                    text='None'
+                    key='None'
+                />) : null}
         </label>
     </div>
 )
