@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Header from './components/layout/Header';
-import ProgressBar from './components/layout/ProgressBar';
 import Footer from './components/layout/Footer';
 
 import InfoPage from './components/pages/InfoPage';
@@ -14,8 +13,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <ProgressBar />
-        <InfoPage />
+        <OperationsPage />
         <Footer />
       </div >
     );
