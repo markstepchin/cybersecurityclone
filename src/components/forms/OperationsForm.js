@@ -13,6 +13,14 @@ class OperationsForm extends React.Component {
         this.state = {
             IT: null,
             passwordProtectedComputers: null,
+            passwordsChangedRegularly: null,
+            haveAntivirus: null,
+            interestedInAntivirus: null,
+            haveFirewalls: null,
+            securityScans: null,
+            international: null,
+            useSocialMedia: null,
+            restrictSocialMedia: null,
         }
     }
 
@@ -34,122 +42,66 @@ class OperationsForm extends React.Component {
                     noClick={() => this.setState({ passwordProtectedComputers: false })}
                 />
 
-                <label>
-                    Do you require each computer used in your business to be password protected?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you require the passwords to be at least 6 characters in length and changed regularly?'
+                    response={this.state.passwordsChangedRegularly}
+                    yesClick={() => this.setState({ passwordsChangedRegularly: true })}
+                    noClick={() => this.setState({ passwordsChangedRegularly: false })}
+                />
 
-                <label>
-                    Do you require the passwords to be at least 6 characters in length and changed regularly?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you have antivirus in place? (updated at least monthly)'
+                    response={this.state.haveAntivirus}
+                    yesClick={() => this.setState({ haveAntivirus: true })}
+                    noClick={() => this.setState({ haveAntivirus: false })}
+                />
 
-                <label>
-                    Do you have antivirus in place? (updated at least monthly)
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Some insurance carriers will only insure businesses with an active antivirus. Would you like to purchase discounted antivirus
+                    along with your policy?'
+                    response={this.state.interestedInAntivirus}
+                    yesClick={() => this.setState({ interestedInAntivirus: true })}
+                    noClick={() => this.setState({ interestedInAntivirus: false })}
+                />
 
-                <label>
-                    Some insurance carriers will only insure businesses with an active antivirus. Would you like to purchase discounted antivirus
-                    along with your policy?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you have firewalls in place? (updated at least monthly)'
+                    response={this.state.haveFirewalls}
+                    yesClick={() => this.setState({ haveFirewalls: true })}
+                    noClick={() => this.setState({ haveFirewalls: false })}
+                />
 
-                <label>
-                    Do you have firewalls in place? (updated at least monthly)
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you have a 3rd party perform vulnerability scans or penetration testing done on your computer network at least once a
+                    year?'
+                    response={this.state.securityScans}
+                    yesClick={() => this.setState({ securityScans: true })}
+                    noClick={() => this.setState({ securityScans: false })}
+                />
 
-                <label>
-                    Do you have a 3rd party perform vulnerability scans or penetration testing done on your computer network at least once a
-                    year?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you have revenue generating permanent physical locations outside the US?'
+                    response={this.state.international}
+                    yesClick={() => this.setState({ international: true })}
+                    noClick={() => this.setState({ international: false })}
+                />
 
-                <label>
-                    Do you have revenue generating permanent physical locations outside the US?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you use social media to promote or market your business?'
+                    response={this.state.useSocialMedia}
+                    yesClick={() => this.setState({ useSocialMedia: true })}
+                    noClick={() => this.setState({ useSocialMedia: false })}
+                />
 
-                <label>
-                    Do you use social media to promote or market your business?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
+                <ButtonGroup
+                    label='Do you block or restrict your employees from accessing their personal accounts on social media sites?'
+                    response={this.state.restrictSocialMedia}
+                    yesClick={() => this.setState({ restrictSocialMedia: true })}
+                    noClick={() => this.setState({ restrictSocialMedia: false })}
+                />
 
-                <label>
-                    Do you block or restrict your employees from accessing their personal accounts on social media sites?
-                </label>
-                <div class="row mb-4">
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">Yes</button>
-                    </div>
-                    <div class="col-6">
-                        <button type="button" class="btn btn-light btn-block py-3">No</button>
-                    </div>
-                </div>
-
-                <div class="my-5">
-                    <button type="button" class="continue-btn">
-                        Next
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+                <NextButton  btnText='Next'/>
+                
             </React.Fragment>
         )
     }
