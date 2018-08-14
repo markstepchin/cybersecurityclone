@@ -5,6 +5,7 @@ import Footer from '../layout/Footer';
 import ProgressBarContact from '../layout/ProgressBarContact';
 import SideBar from '../layout/SideBar';
 import ContactForm from '../forms/ContactForm';
+import NextButton from '../layout/NextButton';
 
 
 const ContactPage = () => (
@@ -19,6 +20,7 @@ const ContactPage = () => (
             your business today."
             
             form={<ContactForm />}
+            nextButton={<NextButton btnText='See your matches' />}
             sideBar={
             <SideBar 
                 heading1='Almost done'

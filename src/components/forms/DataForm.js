@@ -168,8 +168,7 @@ class DataForm extends React.Component {
                         onChange={() => this.setState(prevState => ({ suspectedInsuranceClaim: !prevState.suspectedInsuranceClaim }))}
                     />
                 </CheckBoxGroup >
-
-                <NextButton btnText='Last Step' />
+                
             </React.Fragment>
         )
     }

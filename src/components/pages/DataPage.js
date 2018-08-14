@@ -5,6 +5,7 @@ import Footer from '../layout/Footer';
 import ProgressBarData from '../layout/ProgressBarData';
 import SideBar from '../layout/SideBar';
 import DataForm from '../forms/DataForm';
+import NextButton from '../layout/NextButton';
 
 
 const DataPage = () => (
@@ -18,6 +19,7 @@ const DataPage = () => (
             with the right insurance, making sure you're sufficiently covered."
             
             form={<DataForm />}
+            nextButton={<NextButton btnText='Last Step' />}
             sideBar={
             <SideBar 
                 heading1='Keep going!'

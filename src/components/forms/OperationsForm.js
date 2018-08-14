@@ -99,8 +99,6 @@ class OperationsForm extends React.Component {
                     yesClick={() => this.setState({ restrictSocialMedia: true })}
                     noClick={() => this.setState({ restrictSocialMedia: false })}
                 />
-
-                <NextButton  btnText='Next'/>
                 
             </React.Fragment>
         )

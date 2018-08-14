@@ -86,8 +86,6 @@ class ContactForm extends React.Component {
                     onChange={event => this.setState({ zip: event.target.value })}
                 />
 
-                <NextButton btnText='See your matches' />
-
             </React.Fragment>
         )
     }

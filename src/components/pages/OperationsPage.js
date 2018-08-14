@@ -5,6 +5,7 @@ import Footer from '../layout/Footer';
 import ProgressBarOperations from '../layout/ProgressBarOperations';
 import SideBar from '../layout/SideBar';
 import OperationsForm from '../forms/OperationsForm';
+import NextButton from '../layout/NextButton';
 
 
 const OperationsPage = () => (
@@ -19,6 +20,7 @@ const OperationsPage = () => (
             description="Knowing a little about your business's operations will help us identify which coverages your business needs."
             
             form={<OperationsForm />}
+            nextButton={<NextButton btnText='Next' />}
             sideBar={
             <SideBar 
                 heading1='Great Start'
