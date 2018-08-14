@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -20,7 +22,12 @@ const OperationsPage = () => (
             description="Knowing a little about your business's operations will help us identify which coverages your business needs."
             
             form={<OperationsForm />}
-            nextButton={<NextButton btnText='Next' />}
+            nextButton={
+                <Link to='./data'>
+                    <NextButton btnText='Next' />
+                </Link>
+            }
+
             sideBar={
             <SideBar 
                 heading1='Great Start'

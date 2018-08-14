@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -20,7 +22,13 @@ const ContactPage = () => (
             your business today."
             
             form={<ContactForm />}
-            nextButton={<NextButton btnText='See your matches' />}
+            nextButton={
+                <Link to='./quotes'>
+                    <NextButton btnText='See your matches' />
+                </Link>
+            }
+
+
             sideBar={
             <SideBar 
                 heading1='Almost done'

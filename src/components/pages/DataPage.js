@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -19,7 +21,12 @@ const DataPage = () => (
             with the right insurance, making sure you're sufficiently covered."
             
             form={<DataForm />}
-            nextButton={<NextButton btnText='Last Step' />}
+            nextButton={
+                <Link to='./contact'>
+                    <NextButton btnText='Last Step' />
+                </Link>
+            }
+
             sideBar={
             <SideBar 
                 heading1='Keep going!'

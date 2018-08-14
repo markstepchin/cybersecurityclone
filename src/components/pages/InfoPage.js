@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
@@ -20,7 +22,12 @@ const InfoPage = () => (
             and at the end we'll be able to match you with real cyber insurance rates from top insurance carriers."
             
             form={<InfoForm />}
-            nextButton={<NextButton btnText='Continue' />}
+            nextButton={
+                <Link to='./operations'>
+                    <NextButton btnText='Continue' />
+                </Link>
+            }
+
             sideBar={
             <SideBar 
                 heading1="Secure Your Business"
