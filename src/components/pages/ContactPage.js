@@ -28,7 +28,6 @@ const ContactPage = () => (
                 </Link>
             }
 
-
             sideBar={
             <SideBar 
                 heading1='Almost done'

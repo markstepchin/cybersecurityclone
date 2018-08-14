@@ -63,11 +63,13 @@ class InfoForm extends React.Component {
                     <CheckBoxInput
                         label='PCI/DCI Compliance'
                         checked={this.state.subjectToPCI}
+                        unClick={() => this.setState({ subjectToPCI: false })}
                         onChange={() => this.setState(prevState => ({ subjectToPCI: !prevState.subjectToPCI }))}
                     />
                     <CheckBoxInput
                         label='HIPAA/HITECH Compliance'
                         checked={this.state.subjectToHIPPA}
+                        unClick={() => this.setState({ subjectToHIPPA: false })}
                         onChange={() => this.setState(prevState => ({ subjectToHIPPA: !prevState.subjectToHIPPA }))}
                     />
                 </CheckBoxGroup >

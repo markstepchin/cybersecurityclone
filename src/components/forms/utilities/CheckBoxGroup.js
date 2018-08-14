@@ -23,7 +23,7 @@ const CheckBoxGroup = (props) => (
 
 const uncheckChildren = (children) => {
     React.Children.map(children, (child) => {
-        child.props.onChange();
+        child.props.unClick();
     })
 }
 
