@@ -3,13 +3,14 @@ import React from 'react';
 const PageLayout = (props) => (
     <div className="container border pt-5">
 
-        {/* header */}
+        {/* title */}
         <div className="row">
             <div className="col-lg-8 pl-5">
-                <h3 className='mb-4'>{props.headerText}</h3>  {/* HEADER */}
+                <h3 className='mb-4'>{props.headerText}</h3>  {/* TITLE */}
             </div>
         </div>
-        {/* /header */}
+        {/* /title */}
+
 
         {/* content */}
         <div className="row">
@@ -24,6 +25,8 @@ const PageLayout = (props) => (
             </div>
         </div>
         {/* /content */}
+
+        {props.nextButton}
 
     </div>
 )

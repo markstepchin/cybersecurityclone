@@ -86,7 +86,7 @@ class InfoForm extends React.Component {
                     onChange={event => this.setState({ previousInsuranceDate: event.target.value })}
                 />
 
-                <NextButton btnText='Continue' />
+
             </form >
         )
     }

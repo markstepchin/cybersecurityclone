@@ -1,5 +1,7 @@
 import React from 'react';
 import PageLayout from '../layout/PageLayout';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 import ProgressBarContact from '../layout/ProgressBarContact';
 import SideBar from '../layout/SideBar';
 import ContactForm from '../forms/ContactForm';
@@ -7,6 +9,7 @@ import ContactForm from '../forms/ContactForm';
 
 const ContactPage = () => (
     <React.Fragment>
+        <Header />
         <ProgressBarContact />
         <PageLayout
             progress="0%"
@@ -27,6 +30,7 @@ const ContactPage = () => (
                 third parties. For more information, please review our Privacy Policy."
             />}
         />
+        <Footer />
     </React.Fragment>
     
 )

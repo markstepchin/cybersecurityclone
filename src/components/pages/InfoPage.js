@@ -1,13 +1,17 @@
 import React from 'react';
 import PageLayout from '../layout/PageLayout';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 import ProgressBarInfo from '../layout/ProgressBarInfo';
 import SideBar from '../layout/SideBar';
 import InfoForm from '../forms/InfoForm';
+import NextButton from '../layout/NextButton';
 
 
 const InfoPage = () => (
 
     <React.Fragment>
+        <Header />
         <ProgressBarInfo />
 
         <PageLayout
@@ -16,6 +20,7 @@ const InfoPage = () => (
             and at the end we'll be able to match you with real cyber insurance rates from top insurance carriers."
             
             form={<InfoForm />}
+            nextButton={<NextButton btnText='Continue' />}
             sideBar={
             <SideBar 
                 heading1="Secure Your Business"
@@ -27,6 +32,8 @@ const InfoPage = () => (
                 That's it. For more information, please review our Privacy Policy."
             />}
         />
+
+        <Footer />
 
     </React.Fragment>
     

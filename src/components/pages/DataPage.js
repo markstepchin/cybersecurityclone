@@ -1,5 +1,7 @@
 import React from 'react';
 import PageLayout from '../layout/PageLayout';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 import ProgressBarData from '../layout/ProgressBarData';
 import SideBar from '../layout/SideBar';
 import DataForm from '../forms/DataForm';
@@ -7,6 +9,7 @@ import DataForm from '../forms/DataForm';
 
 const DataPage = () => (
     <React.Fragment>
+        <Header />
         <ProgressBarData />
         <PageLayout
             progress="0%"
@@ -24,6 +27,7 @@ const DataPage = () => (
                 to $4 million, crippling many businesses."
             />}
         />
+        <Footer />
     </React.Fragment>
 )
 

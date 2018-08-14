@@ -1,5 +1,7 @@
 import React from 'react';
 import PageLayout from '../layout/PageLayout';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 import ProgressBarOperations from '../layout/ProgressBarOperations';
 import SideBar from '../layout/SideBar';
 import OperationsForm from '../forms/OperationsForm';
@@ -8,7 +10,7 @@ import OperationsForm from '../forms/OperationsForm';
 const OperationsPage = () => (
 
     <React.Fragment>
-
+        <Header />
         <ProgressBarOperations />
 
         <PageLayout
@@ -26,6 +28,9 @@ const OperationsPage = () => (
                 in the event of a cyber attack, letting you focus on getting back to work."
             />}
         />
+
+        <Footer />
+
     </React.Fragment>
     
 )
