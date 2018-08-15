@@ -190,17 +190,16 @@ header button {
 /* card styles */
 
 
-.hiscox {
-  width: 50%;
-  height: auto
+.img-sizing {
+  width: 100px;
+  height: auto;
 }
 
-.img {
+.img-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
-  width: 20rem
+  height: 75px;
 }
 
 
