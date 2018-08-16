@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const state1 = {
+      formData: {
+        0: "test company",
+        1: "test type",
+        2: "1995",
+        3: ""
+      }
+    };
+
+    const state = {
+      formData: [
+        {
+          index: 0,
+          data: "test company"
+        },
+        {
+          index: 1,
+          data: "test type"
+        },
+        {
+          index: 2,
+          data: "1995"
+        }
+      ]
+    };
+
+    const action = {
+      type: "FIELD_CHANGE",
+      payLoad: {
+        index: 1,
+        data: 'changed text'
+      }
+    }
+
+    const reducer0 = () => state.formData.map((field, index) => {
+      return Object.assign({}, field, { index: 10 })
+    })
+
+    const reducer = (state, action) => {
+      return Object.assign({}, state, {
+        formData: state.formData.map((field, index) => {
+          if (action.payLoad.index === index) {
+            return Object.assign({}, field, {
+              data: action.payLoad.data
+            })
+          }
+          return field;
+        })
+      })
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const a = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // const f = () => a.map((num, index) => {
+    //   if (index % 2 !== 0)
+    //     return num * 100;
+    //   else
+    //     return num
+    // })
+
+    // const reducer2 = (state, action) => {
+    //   return Object.assign({}, state, {
+    //     formData: state.formData.map((field, index) => {
+    //       if (index === action.payload.index) {
+    //         return Object.assign({}, field, {
+    //           data: action.payload.data
+    //         })
+    //       }
+    //       return todo
+    //     })
+    //   })
+    // }
+
+
+
+
+  </script>
+</body>
+
+</html>

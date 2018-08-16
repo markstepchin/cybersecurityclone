@@ -4,7 +4,6 @@ import Input from "./utilities/Input";
 import CheckBoxInput from "./utilities/CheckBoxInput";
 import CheckBoxGroup from "./utilities/CheckBoxGroup";
 import ButtonGroup from "./utilities/ButtonGroup";
-import NextButton from "../layout/NextButton";
 
 class InfoForm extends React.Component {
   constructor() {
@@ -28,9 +27,15 @@ class InfoForm extends React.Component {
           type="text"
           label="Business Name"
           placeholder="ABC Company"
-          value={this.state.businessName}
+          value={this.props.formData[0].data}
           onChange={event =>
-            this.setState({ businessName: event.target.value })
+            this.props.dispatch({
+              type: "FIELD_CHANGE",
+              payLoad: {
+                index: 0,
+                data: event.target.value
+              }
+            })
           }
         />
 
