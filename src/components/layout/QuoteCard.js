@@ -14,7 +14,7 @@ class QuoteCard extends React.Component {
           <img
             className="card-img-top img-sizing"
             src={this.props.img}
-            alt="Card image cap"
+            alt={this.props.logo}
           />
         </div>
         <div className="card-body">

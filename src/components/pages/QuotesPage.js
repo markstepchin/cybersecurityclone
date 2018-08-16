@@ -11,6 +11,7 @@ const QuotesPage = () => (
   >
     <QuoteCard
       img="./img/bcs.jpg"
+      alt="bcs logo"
       title="8 Coverages"
       coverages={[
         "Privacy Regulary Claims Coverage",
@@ -25,6 +26,7 @@ const QuotesPage = () => (
     />
     <QuoteCard
       img="./img/hiscox2.jpg"
+      alt="hiscox logo"
       title="10 Coverages"
       coverages={[
         "Data Breach Response",
@@ -41,6 +43,7 @@ const QuotesPage = () => (
     />
     <QuoteCard
       img="./img/chubb.jpg"
+      alt="chubb logo"
       title="9 Coverages"
       coverages={[
         "Cyber Incident Response Fund",
