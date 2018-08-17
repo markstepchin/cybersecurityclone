@@ -2,62 +2,51 @@ import React from "react";
 import QuotesPageLayout from "../layout/QuotesPageLayout";
 import QuoteCard from "../layout/QuoteCard";
 
-const QuotesPage = () => (
-  <QuotesPageLayout
-    titleText="Your Cyber Insurance Matches"
-    description="We've sifted through all of our carriers, and identified the top three options that work well for businesses
-        like yours. Highlighted is the one that we think is best for your business based on breadth of coverage,
-        liability limit, and overall value."
-  >
-    <QuoteCard
-      img="./img/bcs.jpg"
-      alt="bcs logo"
-      title="8 Coverages"
-      coverages={[
-        "Privacy Regulary Claims Coverage",
-        "Security Breach Response Coverage",
-        "Cyber Extortion",
-        "Business Income and Digital Asset Restoration",
-        "PCI DSS Assessment",
-        "Privacy Liability (including Employee Privacy)",
-        "Security liability",
-        "Multimedia Liability"
-      ]}
-    />
-    <QuoteCard
-      img="./img/hiscox2.jpg"
-      alt="hiscox logo"
-      title="10 Coverages"
-      coverages={[
-        "Data Breach Response",
-        "Cyber Extortion",
-        "Data Recovery",
-        "Business Interruption",
-        "Dependent Business Interruption",
-        "System Failure Business",
-        "Cyber Crime",
-        "Cyber Deception",
-        "Privacy and Security Liability",
-        "Media Liability"
-      ]}
-    />
-    <QuoteCard
-      img="./img/chubb.jpg"
-      alt="chubb logo"
-      title="9 Coverages"
-      coverages={[
-        "Cyber Incident Response Fund",
-        "Business Interruption",
-        "Contingent Business Interruption",
-        "Digital Data Recovery",
-        "Network Extortion",
-        "Cyber, Privacy and Network Security Liability",
-        "Payment Card Loss",
-        "Regulatory Proceeds",
-        "Electronic, Social, and Printed Media Liability"
-      ]}
-    />
-  </QuotesPageLayout>
-);
+class QuotesPage extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      policies: null
+    };
+  }
+
+  componentWillMount() {
+    fetch("https://us-central1-database-788c5.cloudfunctions.net/getPolicies")
+      .then(res => res.json())
+      .then(data => this.setState({ policies: data.policies }));
+  }
+
+  render() {
+    if (this.state.policies === null) return null;
+
+    return (
+      <QuotesPageLayout
+        titleText="Your Cyber Insurance Matches"
+        description="We've sifted through all of our carriers, and identified the top three options that work well for businesses
+            like yours. Highlighted is the one that we think is best for your business based on breadth of coverage,
+            liability limit, and overall value."
+      >
+        <QuoteCard
+          img="./img/bcs.jpg"
+          alt="bcs logo"
+          title={`${this.state.policies[0].coverages.length} Coverages`}
+          coverages={this.state.policies[0].coverages}
+        />
+        <QuoteCard
+          img="./img/hiscox2.jpg"
+          alt="hiscox logo"
+          title={`${this.state.policies[1].coverages.length} Coverages`}
+          coverages={this.state.policies[1].coverages}
+        />
+        <QuoteCard
+          img="./img/chubb.jpg"
+          alt="chubb logo"
+          title={`${this.state.policies[2].coverages.length} Coverages`}
+          coverages={this.state.policies[2].coverages}
+        />
+      </QuotesPageLayout>
+    );
+  }
+}
 
 export default QuotesPage;
