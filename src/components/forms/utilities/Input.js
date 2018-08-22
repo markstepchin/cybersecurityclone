@@ -10,6 +10,7 @@ const Input = props => (
       value={props.value}
       onChange={props.onChange}
     />
+    <div class="valid-feedback">Please choose a username.</div>
   </div>
 );
 

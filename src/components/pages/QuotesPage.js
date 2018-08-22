@@ -10,14 +10,45 @@ class QuotesPage extends React.Component {
     };
   }
 
-  componentWillMount() {
-    fetch("https://us-central1-database-788c5.cloudfunctions.net/getPolicies")
+  componentDidMount() {
+    const data = {
+      formData: [
+        {
+          index: 0,
+          data: "test company"
+        },
+        {
+          index: 1,
+          data: "test type"
+        },
+        {
+          index: 2,
+          data: "1995"
+        }
+      ]
+    };
+    const url =
+      "https://us-central1-database-788c5.cloudfunctions.net/getPolicies";
+
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => this.setState({ policies: data.policies }));
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
       .then(res => res.json())
       .then(data => this.setState({ policies: data.policies }));
   }
 
   render() {
     if (this.state.policies === null) return null;
+
+    console.log(this.state.policies);
 
     return (
       <QuotesPageLayout

@@ -2,6 +2,8 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
 
+const middleware = [thunk];
+
 const initialState = {
   formData: [
     {
@@ -19,28 +21,8 @@ const initialState = {
   ]
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "FIELD_CHANGE":
-      return Object.assign({}, state, {
-        formData: state.formData.map((field, index) => {
-          if (action.payLoad.index === index) {
-            return Object.assign({}, field, {
-              data: action.payLoad.data
-            });
-          }
-          return field;
-        })
-      });
-    default:
-      return state;
-  }
-};
-
-const middleware = [thunk];
-
 const store = createStore(
-  reducer,
+  rootReducer,
   initialState,
   applyMiddleware(...middleware)
 );
