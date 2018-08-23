@@ -1,16 +1,12 @@
-import React from "react";
-import CheckBoxInput from "../utilities/CheckBoxInput";
-
-/*
-The none field is a variable computed on the fly that displays and toggles the value of other fields
-*/
+import React from 'react';
+import CheckBoxInput from './CheckBoxInput';
 
 class CheckBoxGroup extends React.Component {
-  uncheckChildren = event => {
-    // React.Children.map(children, (child) => {
-    //     child.props.unClick();
-    // })
-    console.log(event);
+  uncheckChildren = children => {
+    React.Children.map(children, child => {
+      child.props.unClick();
+    });
+    // console.log(event);
   };
 
   noChildChecked = children => {
@@ -35,7 +31,7 @@ class CheckBoxGroup extends React.Component {
             <CheckBoxInput
               label="None"
               checked={this.noChildChecked(this.props.children)}
-              onChange={this.uncheckChildren}
+              onChange={() => this.uncheckChildren(this.props.children)}
             />
           ) : null}
         </label>

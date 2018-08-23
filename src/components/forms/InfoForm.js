@@ -13,10 +13,11 @@ class InfoForm extends React.Component {
     businessType: '',
     projectedRevenue: '',
     numEmployees: '',
-    subjectToPCI: null,
-    subjectToHIPPA: null,
+    subjectToPCI: false,
+    subjectToHIPPA: false,
     hadPreviousInsurance: null,
-    previousInsuranceDate: ''
+    previousInsuranceDate: '',
+    test: true
   };
 
   onFieldChange = ({ target: { value, name } }) => {
@@ -53,19 +54,10 @@ class InfoForm extends React.Component {
           onChange={this.onFieldChange}
         />
 
-        <Input
-          type="number"
-          name="number_employees"
-          label="Number of Employees"
-          placeholder="e.g., 10"
-          value={this.props.business_info.number_employees || ''}
-          onChange={this.onFieldChange}
-        />
-
         <CheckBoxGroup label="Are you subject to:" noneOption={true}>
           <CheckBoxInput
             label="PCI/DCI Compliance"
-            checked={false}
+            checked={this.state.subjectToPCI}
             unClick={() => this.setState({ subjectToPCI: false })}
             onChange={() =>
               this.setState(prevState => ({
