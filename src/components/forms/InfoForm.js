@@ -1,78 +1,71 @@
-import React from "react";
-import { connect } from "react-redux";
-import Input from "./utilities/Input";
-import CheckBoxInput from "./utilities/CheckBoxInput";
-import CheckBoxGroup from "./utilities/CheckBoxGroup";
-import ButtonGroup from "./utilities/ButtonGroup";
+import React from 'react';
+import { connect } from 'react-redux';
+import Input from './utilities/Input';
+import CheckBoxInput from './utilities/CheckBoxInput';
+import CheckBoxGroup from './utilities/CheckBoxGroup';
+import ButtonGroup from './utilities/ButtonGroup';
+
+import { updateField } from '../../ducks/fields';
 
 class InfoForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      businessName: "",
-      businessType: "",
-      projectedRevenue: "",
-      numEmployees: "",
-      subjectToPCI: false,
-      subjectToHIPPA: false,
-      hadPreviousInsurance: false,
-      previousInsuranceDate: ""
-    };
-  }
+  state = {
+    businessName: '',
+    businessType: '',
+    projectedRevenue: '',
+    numEmployees: '',
+    subjectToPCI: null,
+    subjectToHIPPA: null,
+    hadPreviousInsurance: false,
+    previousInsuranceDate: ''
+  };
+
+  onFieldChange = ({ target: { value, name } }) => {
+    this.props.dispatch(updateField({ business_info: { [name]: value } }));
+  };
 
   render() {
     return (
       <form>
         <Input
           type="text"
+          name="business_name"
           label="Business Name"
           placeholder="ABC Company"
-          value={this.props.formData[0].data}
-          onChange={event =>
-            this.props.dispatch({
-              type: "FIELD_CHANGE",
-              payLoad: {
-                index: 0,
-                data: event.target.value
-              }
-            })
-          }
+          value={this.props.business_info.business_name || ''}
+          onChange={this.onFieldChange}
         />
 
         <Input
           type="text"
+          name="business_type"
           label="Business Type"
           placeholder="Search for business type"
-          value={this.state.businessType}
-          onChange={event =>
-            this.setState({ businessType: event.target.value })
-          }
+          value={this.props.business_info.business_type || ''}
+          onChange={this.onFieldChange}
         />
 
         <Input
           type="number"
+          name="projected_revenue"
           label="Projected Revenue (Next 12 Months)"
           placeholder="e.g., $400,000"
-          value={this.state.projectedRevenue}
-          onChange={event =>
-            this.setState({ projectedRevenue: event.target.value })
-          }
+          value={this.props.business_info.projected_revenue || ''}
+          onChange={this.onFieldChange}
         />
 
         <Input
           type="number"
+          name="number_employees"
           label="Number of Employees"
           placeholder="e.g., 10"
-          value={this.state.numEmployees}
-          onChange={event =>
-            this.setState({ numEmployees: event.target.value })
-          }
+          value={this.props.business_info.number_employees || ''}
+          onChange={this.onFieldChange}
         />
 
         <CheckBoxGroup label="Are you subject to:" noneOption={true}>
           <CheckBoxInput
             label="PCI/DCI Compliance"
-            checked={this.state.subjectToPCI}
+            checked={false}
             unClick={() => this.setState({ subjectToPCI: false })}
             onChange={() =>
               this.setState(prevState => ({
@@ -104,22 +97,19 @@ class InfoForm extends React.Component {
 
         <Input
           type="date"
+          name="retroactive_date"
           label="Since when have you had continuous Cyber Insurance coverage (retroactive date)?"
           placeholder="e.g., 10"
-          value={this.state.previousInsuranceDate}
-          onChange={event =>
-            this.setState({ previousInsuranceDate: event.target.value })
-          }
+          value={this.props.business_info.retroactive_date || ''}
+          onChange={this.onFieldChange}
         />
       </form>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    formData: state.formData
-  };
-};
+const mapStateToProps = ({ fields: { business_info } }) => ({
+  business_info
+});
 
 export default connect(mapStateToProps)(InfoForm);
