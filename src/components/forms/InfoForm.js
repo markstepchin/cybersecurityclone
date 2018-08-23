@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Input from './utilities/Input';
 import CheckBoxInput from './utilities/CheckBoxInput';
 import CheckBoxGroup from './utilities/CheckBoxGroup';
 import ButtonGroup from './utilities/ButtonGroup';
+import NextButton from '../layout/NextButton';
 
 import { updateField } from '../../ducks/fields';
 
@@ -130,6 +132,10 @@ class InfoForm extends React.Component {
             onChange={this.onFieldChange}
           />
         ) : null}
+
+        <Link to="./operations">
+          <NextButton btnText="Continue" />
+        </Link>
       </form>
     );
   }

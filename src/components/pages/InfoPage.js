@@ -1,14 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
 
-import PageLayout from "../layout/PageLayout";
-import Header from "../layout/Header";
-import Footer from "../layout/Footer";
-import ProgressBarInfo from "../layout/ProgressBarInfo";
-import SideBar from "../layout/SideBar";
-import NextButton from "../layout/NextButton";
+import PageLayout from '../layout/PageLayout';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+import ProgressBarInfo from '../layout/ProgressBarInfo';
+import SideBar from '../layout/SideBar';
 
-import InfoForm from "../forms/InfoForm";
+import InfoForm from '../forms/InfoForm';
 
 const InfoPage = () => (
   <React.Fragment>
@@ -20,11 +18,6 @@ const InfoPage = () => (
       description="To get started, please tell us a little bit about your business. The whole process only takes about 5 minutes,
             and at the end we'll be able to match you with real cyber insurance rates from top insurance carriers."
       form={<InfoForm />}
-      nextButton={
-        <Link to="./operations">
-          <NextButton btnText="Continue" />
-        </Link>
-      }
       sideBar={
         <SideBar
           heading1="Secure Your Business"
