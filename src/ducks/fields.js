@@ -18,16 +18,16 @@ const fieldsReducer = (state = initialState, action) => {
     case UPDATE_FIELD: {
       const { payload } = action;
 
-      console.log(payload);
+      // console.log(payload);
       // console.log(Object.keys(payload));
       const data = {};
 
       Object.keys(payload).forEach(key => {
-        console.log(key);
+        // console.log(key);
         data[key] = {
           $merge: payload[key]
         };
-        console.log(data);
+        // console.log(data);
       });
 
       // console.log(payload);

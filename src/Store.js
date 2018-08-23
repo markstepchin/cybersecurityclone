@@ -5,6 +5,6 @@ import fields from './ducks/fields';
 
 const store = createStore(combineReducers({ fields }), {}, devToolsEnhancer());
 
-console.log(store.getState());
+// console.log(store.getState());
 
 export default store;

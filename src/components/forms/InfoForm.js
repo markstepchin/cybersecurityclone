@@ -15,7 +15,7 @@ class InfoForm extends React.Component {
     numEmployees: '',
     subjectToPCI: null,
     subjectToHIPPA: null,
-    hadPreviousInsurance: false,
+    hadPreviousInsurance: null,
     previousInsuranceDate: ''
   };
 
@@ -87,22 +87,33 @@ class InfoForm extends React.Component {
 
         <ButtonGroup
           label="Have you previously purchased a Cyber Insurance Policy?"
-          response={this.state.hadPreviousInsurance}
-          toggle={() =>
-            this.setState(prevState => ({
-              hadPreviousInsurance: !prevState.hadPreviousInsurance
-            }))
-          }
+          response={this.props.business_info.had_previous_insurance || false}
+          yesClick={() => {
+            const event = {};
+            event.target = {};
+            event.target.name = 'had_previous_insurance';
+            event.target.value = true;
+            this.onFieldChange(event);
+          }}
+          noClick={() => {
+            const event = {};
+            event.target = {};
+            event.target.name = 'had_previous_insurance';
+            event.target.value = false;
+            this.onFieldChange(event);
+          }}
         />
 
-        <Input
-          type="date"
-          name="retroactive_date"
-          label="Since when have you had continuous Cyber Insurance coverage (retroactive date)?"
-          placeholder="e.g., 10"
-          value={this.props.business_info.retroactive_date || ''}
-          onChange={this.onFieldChange}
-        />
+        {this.props.business_info.had_previous_insurance ? (
+          <Input
+            type="date"
+            name="retroactive_date"
+            label="Since when have you had continuous Cyber Insurance coverage (retroactive date)?"
+            placeholder="e.g., 10"
+            value={this.props.business_info.retroactive_date || ''}
+            onChange={this.onFieldChange}
+          />
+        ) : null}
       </form>
     );
   }
