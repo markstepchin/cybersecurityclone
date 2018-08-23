@@ -57,23 +57,47 @@ class InfoForm extends React.Component {
         <CheckBoxGroup label="Are you subject to:" noneOption={true}>
           <CheckBoxInput
             label="PCI/DCI Compliance"
-            checked={this.state.subjectToPCI}
-            unClick={() => this.setState({ subjectToPCI: false })}
-            onChange={() =>
-              this.setState(prevState => ({
-                subjectToPCI: !prevState.subjectToPCI
-              }))
-            }
+            checked={this.props.business_info.subject_to_PCI || false}
+            unClick={() => {
+              const event = {};
+              event.target = {};
+              event.target.name = 'subject_to_PCI';
+              event.target.value = false;
+
+              this.onFieldChange(event);
+            }}
+            onChange={() => {
+              const prevValue = this.props.business_info.subject_to_PCI || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'subject_to_PCI';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+            }}
           />
           <CheckBoxInput
             label="HIPAA/HITECH Compliance"
-            checked={this.state.subjectToHIPPA}
-            unClick={() => this.setState({ subjectToHIPPA: false })}
-            onChange={() =>
-              this.setState(prevState => ({
-                subjectToHIPPA: !prevState.subjectToHIPPA
-              }))
-            }
+            checked={this.props.business_info.subject_to_HIPPA || false}
+            unClick={() => {
+              const event = {};
+              event.target = {};
+              event.target.name = 'subject_to_HIPPA';
+              event.target.value = false;
+
+              this.onFieldChange(event);
+            }}
+            onChange={() => {
+              const prevValue = this.props.business_info.subject_to_HIPPA || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'subject_to_HIPPA';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+            }}
           />
         </CheckBoxGroup>
 
