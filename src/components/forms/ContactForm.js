@@ -1,19 +1,22 @@
-import React from "react";
-import Input from "./utilities/Input";
-import SelectState from "./utilities/SelectState";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Input from './utilities/Input';
+import SelectState from './utilities/SelectState';
+
+import NextButton from '../layout/NextButton';
 
 class ContactForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: "",
-      phone: "",
-      email: "",
-      address: "",
-      suiteFloor: "",
-      city: "",
-      state: "",
-      zip: ""
+      name: '',
+      phone: '',
+      email: '',
+      address: '',
+      suiteFloor: '',
+      city: '',
+      state: '',
+      zip: ''
     };
   }
 
@@ -80,6 +83,10 @@ class ContactForm extends React.Component {
           value={this.state.zip}
           onChange={event => this.setState({ zip: event.target.value })}
         />
+
+        <Link to="./quotes">
+          <NextButton btnText="See your matches" />
+        </Link>
       </React.Fragment>
     );
   }

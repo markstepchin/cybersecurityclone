@@ -1,7 +1,9 @@
-import React from "react";
-import CheckBoxInput from "./utilities/CheckBoxInput";
-import CheckBoxGroup from "./utilities/CheckBoxGroup";
-import ButtonGroup from "./utilities/ButtonGroup";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import CheckBoxInput from './utilities/CheckBoxInput';
+import CheckBoxGroup from './utilities/CheckBoxGroup';
+import ButtonGroup from './utilities/ButtonGroup';
+import NextButton from '../layout/NextButton';
 
 class DataForm extends React.Component {
   constructor() {
@@ -34,10 +36,7 @@ class DataForm extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <CheckBoxGroup
-          label="Do you encrypt sensitive data on:"
-          noneOption={true}
-        >
+        <CheckBoxGroup label="Do you encrypt sensitive data on:" noneOption={true}>
           <CheckBoxInput
             label="Office Computers"
             checked={this.state.encryptOnComputers}
@@ -74,10 +73,7 @@ class DataForm extends React.Component {
           noClick={() => this.setState({ backupData: false })}
         />
 
-        <CheckBoxGroup
-          label="Where do you back it up? (select all that apply)"
-          noneOption={false}
-        >
+        <CheckBoxGroup label="Where do you back it up? (select all that apply)" noneOption={false}>
           <CheckBoxInput
             label="On-site"
             checked={this.state.backupOnSite}
@@ -123,9 +119,7 @@ class DataForm extends React.Component {
           <CheckBoxInput
             label="Tampering"
             checked={this.state.tampering}
-            onChange={() =>
-              this.setState(prevState => ({ tampering: !prevState.tampering }))
-            }
+            onChange={() => this.setState(prevState => ({ tampering: !prevState.tampering }))}
           />
           <CheckBoxInput
             label="Virus or malicious code attacks"
@@ -175,9 +169,7 @@ class DataForm extends React.Component {
           <CheckBoxInput
             label="Data theft"
             checked={this.state.dataTheft}
-            onChange={() =>
-              this.setState(prevState => ({ dataTheft: !prevState.dataTheft }))
-            }
+            onChange={() => this.setState(prevState => ({ dataTheft: !prevState.dataTheft }))}
           />
           <CheckBoxInput
             label="Copyright or trademark dispute"
@@ -198,9 +190,7 @@ class DataForm extends React.Component {
           <CheckBoxInput
             label="Loss of sensitive data"
             checked={this.state.dataLoss}
-            onChange={() =>
-              this.setState(prevState => ({ dataLoss: !prevState.dataLoss }))
-            }
+            onChange={() => this.setState(prevState => ({ dataLoss: !prevState.dataLoss }))}
           />
           <CheckBoxInput
             label="Loss of revenue or income"
@@ -239,6 +229,10 @@ class DataForm extends React.Component {
             }
           />
         </CheckBoxGroup>
+
+        <Link to="./contact">
+          <NextButton btnText="Last Step" />
+        </Link>
       </React.Fragment>
     );
   }

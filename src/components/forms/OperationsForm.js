@@ -1,5 +1,7 @@
-import React from "react";
-import ButtonGroup from "./utilities/ButtonGroup";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import ButtonGroup from './utilities/ButtonGroup';
+import NextButton from '../layout/NextButton';
 
 class OperationsForm extends React.Component {
   constructor() {
@@ -93,6 +95,10 @@ class OperationsForm extends React.Component {
           yesClick={() => this.setState({ restrictSocialMedia: true })}
           noClick={() => this.setState({ restrictSocialMedia: false })}
         />
+
+        <Link to="./data">
+          <NextButton btnText="Next" />
+        </Link>
       </React.Fragment>
     );
   }
