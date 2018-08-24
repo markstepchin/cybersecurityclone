@@ -22,6 +22,7 @@ class ButtonGroup extends React.Component {
   render() {
     return (
       <ButtonGroupLayout
+        name={this.props.name}
         label={this.props.label}
         response={this.props.response}
         yesClick={this.props.yesClick}
@@ -39,6 +40,7 @@ const ButtonGroupLayout = props => (
     <div className="row mb-4">
       <div className="col-6">
         <button
+          name={props.name}
           type="button"
           className={`btn ${props.yesColor()} btn-block py-3`}
           onClick={props.yesClick}
@@ -48,6 +50,7 @@ const ButtonGroupLayout = props => (
       </div>
       <div className="col-6">
         <button
+          name={props.name}
           type="button"
           className={`btn ${props.noColor()} btn-block py-3`}
           onClick={props.noClick}

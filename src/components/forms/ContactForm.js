@@ -8,13 +8,6 @@ import NextButton from '../layout/NextButton';
 import { updateField } from '../../ducks/fields';
 
 class ContactForm extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      state: ''
-    };
-  }
-
   onFieldChange = ({ target: { value, name } }) => {
     this.props.dispatch(updateField({ contact_info: { [name]: value } }));
   };

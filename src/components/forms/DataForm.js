@@ -6,13 +6,12 @@ import CheckBoxGroup from './utilities/CheckBoxGroup';
 import ButtonGroup from './utilities/ButtonGroup';
 import NextButton from '../layout/NextButton';
 
+import { updateField } from '../../ducks/fields';
+
 class DataForm extends React.Component {
   constructor() {
     super();
     this.state = {
-      encryptOnComputers: null,
-      encryptOnMobile: null,
-      encryptOnNetworks: null,
       backupData: null,
       backupOnSite: false,
       backupOffSitePhysical: false,
@@ -34,44 +33,111 @@ class DataForm extends React.Component {
     };
   }
 
+  onFieldChange = ({ target: { value, name } }) => {
+    this.props.dispatch(updateField({ business_info: { [name]: value } }));
+  };
+
   render() {
     return (
       <React.Fragment>
-        <CheckBoxGroup label="Do you encrypt sensitive data on:" noneOption={true}>
+        <CheckBoxGroup
+          label="Do you encrypt sensitive data on:"
+          noneOption={true}
+          childrenNull={
+            typeof this.props.business_info.encrypt_on_computers === 'undefined' &&
+            typeof this.props.business_info.encrypt_on_mobile === 'undefined' &&
+            typeof this.props.business_info.encrypt_on_networks === 'undefined'
+          }
+        >
           <CheckBoxInput
             label="Office Computers"
-            checked={this.state.encryptOnComputers}
-            onChange={() =>
-              this.setState(prevState => ({
-                encryptOnComputers: !prevState.encryptOnComputers
-              }))
-            }
+            checked={this.props.business_info.encrypt_on_computers || false}
+            unClick={() => {
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_computers';
+              event.target.value = false;
+
+              this.onFieldChange(event);
+            }}
+            onChange={() => {
+              const prevValue = this.props.business_info.encrypt_on_computers || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_computers';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+            }}
           />
           <CheckBoxInput
             label="Mobile Devices (laptops, cell phones, flash drives, tablets, etc.)"
-            checked={this.state.encryptOnMobile}
-            onChange={() =>
-              this.setState(prevState => ({
-                encryptOnMobile: !prevState.encryptOnMobile
-              }))
-            }
+            checked={this.props.business_info.encrypt_on_mobile || false}
+            unClick={() => {
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_mobile';
+              event.target.value = false;
+
+              this.onFieldChange(event);
+            }}
+            onChange={() => {
+              const prevValue = this.props.business_info.encrypt_on_mobile || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_mobile';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+            }}
           />
           <CheckBoxInput
             label="Networks"
-            checked={this.state.encryptOnNetworks}
-            onChange={() =>
-              this.setState(prevState => ({
-                encryptOnNetworks: !prevState.encryptOnNetworks
-              }))
-            }
+            checked={this.props.business_info.encrypt_on_networks || false}
+            unClick={() => {
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_networks';
+              event.target.value = false;
+
+              this.onFieldChange(event);
+            }}
+            onChange={() => {
+              const prevValue = this.props.business_info.encrypt_on_networks || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'encrypt_on_networks';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+            }}
           />
         </CheckBoxGroup>
 
         <ButtonGroup
           label="Do you backup critical business systems, data, and Personally Identifiable Information (PII) at least once a week?"
-          response={this.state.backupData}
-          yesClick={() => this.setState({ backupData: true })}
-          noClick={() => this.setState({ backupData: false })}
+          response={
+            typeof this.props.business_info.backup_data === 'undefined'
+              ? null
+              : this.props.business_info.backup_data
+          }
+          yesClick={() => {
+            const event = {};
+            event.target = {};
+            event.target.name = 'backup_data';
+            event.target.value = true;
+            this.onFieldChange(event);
+          }}
+          noClick={() => {
+            const event = {};
+            event.target = {};
+            event.target.name = 'backup_data';
+            event.target.value = false;
+            this.onFieldChange(event);
+          }}
         />
 
         <CheckBoxGroup label="Where do you back it up? (select all that apply)" noneOption={false}>

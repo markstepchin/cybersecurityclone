@@ -13,18 +13,16 @@ const initialState = {
   contact_info: {}
 };
 
-const fieldsReducer = (state = initialState, action) => {
-  switch (action.type) {
+const fieldsReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case UPDATE_FIELD: {
-      const { payload } = action;
-
       // console.log(payload);
       // console.log(Object.keys(payload));
-      const data = {};
+      const newData = {};
 
       Object.keys(payload).forEach(key => {
         // console.log(key);
-        data[key] = {
+        newData[key] = {
           $merge: payload[key]
         };
         // console.log(data);
@@ -32,7 +30,7 @@ const fieldsReducer = (state = initialState, action) => {
 
       // console.log(payload);
 
-      return update(state, data);
+      return update(state, newData);
     }
 
     default:

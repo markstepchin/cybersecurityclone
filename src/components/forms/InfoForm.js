@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Input from './utilities/Input';
 import CheckBoxInput from './utilities/CheckBoxInput';
+import { customEvent } from './utilities/customEvent';
 import CheckBoxGroup from './utilities/CheckBoxGroup';
 import ButtonGroup from './utilities/ButtonGroup';
 import NextButton from '../layout/NextButton';
@@ -10,8 +11,9 @@ import NextButton from '../layout/NextButton';
 import { updateField } from '../../ducks/fields';
 
 class InfoForm extends React.Component {
-  onFieldChange = ({ target: { value, name } }) => {
-    this.props.dispatch(updateField({ business_info: { [name]: value } }));
+  onFieldChange = ({ target: { value, name, checked, type } }) => {
+    const newValue = type === 'checkbox' ? checked : value;
+    this.props.dispatch(updateField({ business_info: { [name]: newValue } }));
   };
 
   render() {
@@ -48,57 +50,33 @@ class InfoForm extends React.Component {
           label="Are you subject to:"
           noneOption={true}
           childrenNull={
+            // needed to keep the 'None' option de-selected for the initial state
             typeof this.props.business_info.subject_to_PCI === 'undefined' &&
             typeof this.props.business_info.subject_to_PCI === 'undefined'
           }
         >
           <CheckBoxInput
+            name="subject_to_PCI"
             label="PCI/DCI Compliance"
             checked={this.props.business_info.subject_to_PCI || false}
-            unClick={() => {
-              const event = {};
-              event.target = {};
-              event.target.name = 'subject_to_PCI';
-              event.target.value = false;
-
-              this.onFieldChange(event);
-            }}
-            onChange={() => {
-              const prevValue = this.props.business_info.subject_to_PCI || false;
-
-              const event = {};
-              event.target = {};
-              event.target.name = 'subject_to_PCI';
-              event.target.value = !prevValue;
-
-              this.onFieldChange(event);
-            }}
+            unClick={() =>
+              this.onFieldChange(customEvent({ name: 'subject_to_PCI', value: false }))
+            }
+            onChange={this.onFieldChange}
           />
           <CheckBoxInput
+            name="subject_to_HIPPA"
             label="HIPAA/HITECH Compliance"
             checked={this.props.business_info.subject_to_HIPPA || false}
-            unClick={() => {
-              const event = {};
-              event.target = {};
-              event.target.name = 'subject_to_HIPPA';
-              event.target.value = false;
-
-              this.onFieldChange(event);
-            }}
-            onChange={() => {
-              const prevValue = this.props.business_info.subject_to_HIPPA || false;
-
-              const event = {};
-              event.target = {};
-              event.target.name = 'subject_to_HIPPA';
-              event.target.value = !prevValue;
-
-              this.onFieldChange(event);
-            }}
+            unClick={() =>
+              this.onFieldChange(customEvent({ name: 'subject_to_HIPPA', value: false }))
+            }
+            onChange={this.onFieldChange}
           />
         </CheckBoxGroup>
 
         <ButtonGroup
+          name="had_previous_insurance"
           label="Have you previously purchased a Cyber Insurance Policy?"
           response={
             typeof this.props.business_info.had_previous_insurance === 'undefined'
@@ -145,3 +123,14 @@ const mapStateToProps = ({ fields: { business_info } }) => ({
 });
 
 export default connect(mapStateToProps)(InfoForm);
+
+/*
+const prevValue = this.props.business_info.subject_to_PCI || false;
+
+              const event = {};
+              event.target = {};
+              event.target.name = 'subject_to_PCI';
+              event.target.value = !prevValue;
+
+              this.onFieldChange(event);
+*/
