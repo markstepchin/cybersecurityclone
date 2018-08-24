@@ -67,26 +67,31 @@ class DataForm extends React.Component {
           noClick={() => this.onFieldChange(customEvent({ name: 'backup_data', value: false }))}
         />
 
-        <CheckBoxGroup label="Where do you back it up? (select all that apply)" noneOption={false}>
-          <CheckBoxInput
-            name="backup_on_site"
-            label="On-site"
-            checked={this.props.business_info.backup_on_site || false}
-            onChange={this.onFieldChange}
-          />
-          <CheckBoxInput
-            name="backup_on_offsite"
-            label="Offsite (physical storage)"
-            checked={this.props.business_info.backup_on_offsite || false}
-            onChange={this.onFieldChange}
-          />
-          <CheckBoxInput
-            name="backup_on_cloud"
-            label="Offsite (the Cloud)"
-            checked={this.props.business_info.backup_on_cloud || false}
-            onChange={this.onFieldChange}
-          />
-        </CheckBoxGroup>
+        {this.props.business_info.backup_data ? (
+          <CheckBoxGroup
+            label="Where do you back it up? (select all that apply)"
+            noneOption={false}
+          >
+            <CheckBoxInput
+              name="backup_on_site"
+              label="On-site"
+              checked={this.props.business_info.backup_on_site || false}
+              onChange={this.onFieldChange}
+            />
+            <CheckBoxInput
+              name="backup_on_offsite"
+              label="Offsite (physical storage)"
+              checked={this.props.business_info.backup_on_offsite || false}
+              onChange={this.onFieldChange}
+            />
+            <CheckBoxInput
+              name="backup_on_cloud"
+              label="Offsite (the Cloud)"
+              checked={this.props.business_info.backup_on_cloud || false}
+              onChange={this.onFieldChange}
+            />
+          </CheckBoxGroup>
+        ) : null}
 
         <CheckBoxGroup
           label="Within the last 5 years, have you experienced or have reason to suspect any of the following (or something similar to them):"

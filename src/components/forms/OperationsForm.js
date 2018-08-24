@@ -41,20 +41,22 @@ class OperationsForm extends React.Component {
           }
         />
 
-        <ButtonGroup
-          label="Do you require the passwords to be at least 6 characters in length and changed regularly?"
-          response={
-            typeof this.props.business_info.passwords_changed_regularly === 'undefined'
-              ? null
-              : this.props.business_info.passwords_changed_regularly
-          }
-          yesClick={() =>
-            this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: true }))
-          }
-          noClick={() =>
-            this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: false }))
-          }
-        />
+        {this.props.business_info.password_protected_computers ? (
+          <ButtonGroup
+            label="Do you require the passwords to be at least 6 characters in length and changed regularly?"
+            response={
+              typeof this.props.business_info.passwords_changed_regularly === 'undefined'
+                ? null
+                : this.props.business_info.passwords_changed_regularly
+            }
+            yesClick={() =>
+              this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: true }))
+            }
+            noClick={() =>
+              this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: false }))
+            }
+          />
+        ) : null}
 
         <ButtonGroup
           label="Do you have antivirus in place? (updated at least monthly)"
@@ -67,21 +69,23 @@ class OperationsForm extends React.Component {
           noClick={() => this.onFieldChange(customEvent({ name: 'have_antivirus', value: false }))}
         />
 
-        <ButtonGroup
-          label="Some insurance carriers will only insure businesses with an active antivirus. Would you like to purchase discounted antivirus
+        {this.props.business_info.have_antivirus ? (
+          <ButtonGroup
+            label="Some insurance carriers will only insure businesses with an active antivirus. Would you like to purchase discounted antivirus
                     along with your policy?"
-          response={
-            typeof this.props.business_info.interested_in_antivirus === 'undefined'
-              ? null
-              : this.props.business_info.interested_in_antivirus
-          }
-          yesClick={() =>
-            this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: true }))
-          }
-          noClick={() =>
-            this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: false }))
-          }
-        />
+            response={
+              typeof this.props.business_info.interested_in_antivirus === 'undefined'
+                ? null
+                : this.props.business_info.interested_in_antivirus
+            }
+            yesClick={() =>
+              this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: true }))
+            }
+            noClick={() =>
+              this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: false }))
+            }
+          />
+        ) : null}
 
         <ButtonGroup
           label="Do you have firewalls in place? (updated at least monthly)"

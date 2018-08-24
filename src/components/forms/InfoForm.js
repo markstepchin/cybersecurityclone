@@ -75,6 +75,42 @@ class InfoForm extends React.Component {
           />
         </CheckBoxGroup>
 
+        {this.props.business_info.subject_to_PCI ? (
+          <ButtonGroup
+            name="chip_card_readers"
+            label="Do you use only chip-enabled card readers or are you certified as PCI/DSS compliant?"
+            response={
+              typeof this.props.business_info.chip_card_readers === 'undefined'
+                ? null
+                : this.props.business_info.chip_card_readers
+            }
+            yesClick={() =>
+              this.onFieldChange(customEvent({ name: 'chip_card_readers', value: true }))
+            }
+            noClick={() =>
+              this.onFieldChange(customEvent({ name: 'chip_card_readers', value: false }))
+            }
+          />
+        ) : null}
+
+        {this.props.business_info.subject_to_HIPPA ? (
+          <ButtonGroup
+            name="compliant_with_HIPPA"
+            label="Are you compliant with applicable HIPAA and HITECH Act requirements?"
+            response={
+              typeof this.props.business_info.compliant_with_HIPPA === 'undefined'
+                ? null
+                : this.props.business_info.compliant_with_HIPPA
+            }
+            yesClick={() =>
+              this.onFieldChange(customEvent({ name: 'compliant_with_HIPPA', value: true }))
+            }
+            noClick={() =>
+              this.onFieldChange(customEvent({ name: 'compliant_with_HIPPA', value: false }))
+            }
+          />
+        ) : null}
+
         <ButtonGroup
           name="had_previous_insurance"
           label="Have you previously purchased a Cyber Insurance Policy?"
