@@ -72,10 +72,10 @@ header {
 
 /* nav circle styles */
 .small-circle {
-  width: 2rem;
-  height: 2rem;
-  line-height: 2rem;
-  font-size: 0.5rem;
+  width: 1.35rem;
+  height: 1.35rem;
+  line-height: 1.35rem;
+  font-size: 0.4rem;
 }
 
 .large-circle {

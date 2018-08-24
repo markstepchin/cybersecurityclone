@@ -16,17 +16,17 @@ const IntroPage = () => (
           <p>My name is Mark Stepchin, and I'd love to work here.</p>
           <p>
             Back when I was in the senior year of my bachelor's degree in CS, Erik Shestopal
-            introduced me to React.js. The focus of my classes was mostly on theory, and most of the
-            coding that we did was building various terminal applications. It was fun and I enjoyed
-            it. But I'm a visual person, and it didn't even come close to giving me the satisfaction
-            that React did, where I could immediately see the impact on my work in a more concrete
-            way.
+            introduced me to React.js. The focus of my classes was mostly theoretical, and most of
+            the coding that we did was building various terminal applications. It was fun and I
+            enjoyed it. But I'm a visual person, and it didn't even come close to giving me the
+            satisfaction that React did, where I could immediately see the impact of my work in a
+            more visual way.
           </p>
           <p>
             I graduated June 2018, and decided that even though I didn't know React very well, I
-            knew that I enjoyed writing it much more than I did Java or c. I spent the next couple
-            months teaching myself HTML, CSS, JavaScript, and React. It was a steep learning curve.
-            Erik told me that CoverHound was growing and needed people, but in order to get hired, a
+            enjoyed writing it much more than I did Java or c. I spent the next couple months
+            teaching myself HTML, CSS, JavaScript, and React. It was a steep learning curve. Erik
+            told me that CoverHound was growing and needed people, but in order to get hired, a
             candidate had to demonstrate that they could contribute from day one.
           </p>
           <p>
@@ -59,8 +59,12 @@ const IntroPage = () => (
             functionality that the real one does, but I hope that it's enough for my purposes.
           </p>
           <p>
-            You can find the code{' '}
+            You can find the code for the app{' '}
             <a href="https://github.com/markstepchin/cybersecurityclone" target="_blank">
+              here
+            </a>
+            , and the code for the endpoint{' '}
+            <a href="https://github.com/markstepchin/CyberPolicyEndpoint" target="_blank">
               here
             </a>
             .
@@ -76,12 +80,3 @@ const IntroPage = () => (
 );
 
 export default IntroPage;
-
-/*
-introduce
-background
-put in effort
-
-
-
-*/
