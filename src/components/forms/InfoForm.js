@@ -115,14 +115,3 @@ const mapStateToProps = ({ fields: { business_info } }) => ({
 });
 
 export default connect(mapStateToProps)(InfoForm);
-
-/*
-const prevValue = this.props.business_info.subject_to_PCI || false;
-
-              const event = {};
-              event.target = {};
-              event.target.name = 'subject_to_PCI';
-              event.target.value = !prevValue;
-
-              this.onFieldChange(event);
-*/

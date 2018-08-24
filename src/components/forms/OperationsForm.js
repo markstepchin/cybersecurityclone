@@ -2,99 +2,149 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ButtonGroup from './utilities/ButtonGroup';
+import { customEvent } from './utilities/customEvent';
 import NextButton from '../layout/NextButton';
+import { updateField } from '../../ducks/fields';
 
 class OperationsForm extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      IT: null,
-      passwordProtectedComputers: null,
-      passwordsChangedRegularly: null,
-      haveAntivirus: null,
-      interestedInAntivirus: null,
-      haveFirewalls: null,
-      securityScans: null,
-      international: null,
-      useSocialMedia: null,
-      restrictSocialMedia: null
-    };
-  }
+  onFieldChange = ({ target: { value, name, checked, type } }) => {
+    const newValue = type === 'checkbox' ? checked : value;
+    this.props.dispatch(updateField({ business_info: { [name]: newValue } }));
+  };
 
   render() {
     return (
       <React.Fragment>
         <ButtonGroup
           label="Do you have an in-house IT person that implements and manages a computer security program for the company network?"
-          response={this.state.IT}
-          yesClick={() => this.setState({ IT: true })}
-          noClick={() => this.setState({ IT: false })}
+          response={
+            typeof this.props.business_info.have_IT === 'undefined'
+              ? null
+              : this.props.business_info.have_IT
+          }
+          yesClick={() => this.onFieldChange(customEvent({ name: 'have_IT', value: true }))}
+          noClick={() => this.onFieldChange(customEvent({ name: 'have_IT', value: false }))}
         />
 
         <ButtonGroup
           label="Do you require each computer used in your business to be password protected?"
-          response={this.state.passwordProtectedComputers}
-          yesClick={() => this.setState({ passwordProtectedComputers: true })}
-          noClick={() => this.setState({ passwordProtectedComputers: false })}
+          response={
+            typeof this.props.business_info.password_protected_computers === 'undefined'
+              ? null
+              : this.props.business_info.password_protected_computers
+          }
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'password_protected_computers', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'password_protected_computers', value: false }))
+          }
         />
 
         <ButtonGroup
           label="Do you require the passwords to be at least 6 characters in length and changed regularly?"
-          response={this.state.passwordsChangedRegularly}
-          yesClick={() => this.setState({ passwordsChangedRegularly: true })}
-          noClick={() => this.setState({ passwordsChangedRegularly: false })}
+          response={
+            typeof this.props.business_info.passwords_changed_regularly === 'undefined'
+              ? null
+              : this.props.business_info.passwords_changed_regularly
+          }
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'passwords_changed_regularly', value: false }))
+          }
         />
 
         <ButtonGroup
           label="Do you have antivirus in place? (updated at least monthly)"
-          response={this.state.haveAntivirus}
-          yesClick={() => this.setState({ haveAntivirus: true })}
-          noClick={() => this.setState({ haveAntivirus: false })}
+          response={
+            typeof this.props.business_info.have_antivirus === 'undefined'
+              ? null
+              : this.props.business_info.have_antivirus
+          }
+          yesClick={() => this.onFieldChange(customEvent({ name: 'have_antivirus', value: true }))}
+          noClick={() => this.onFieldChange(customEvent({ name: 'have_antivirus', value: false }))}
         />
 
         <ButtonGroup
           label="Some insurance carriers will only insure businesses with an active antivirus. Would you like to purchase discounted antivirus
                     along with your policy?"
-          response={this.state.interestedInAntivirus}
-          yesClick={() => this.setState({ interestedInAntivirus: true })}
-          noClick={() => this.setState({ interestedInAntivirus: false })}
+          response={
+            typeof this.props.business_info.interested_in_antivirus === 'undefined'
+              ? null
+              : this.props.business_info.interested_in_antivirus
+          }
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'interested_in_antivirus', value: false }))
+          }
         />
 
         <ButtonGroup
           label="Do you have firewalls in place? (updated at least monthly)"
-          response={this.state.haveFirewalls}
-          yesClick={() => this.setState({ haveFirewalls: true })}
-          noClick={() => this.setState({ haveFirewalls: false })}
+          response={
+            typeof this.props.business_info.have_firewalls === 'undefined'
+              ? null
+              : this.props.business_info.have_firewalls
+          }
+          yesClick={() => this.onFieldChange(customEvent({ name: 'have_firewalls', value: true }))}
+          noClick={() => this.onFieldChange(customEvent({ name: 'have_firewalls', value: false }))}
         />
 
         <ButtonGroup
           label="Do you have a 3rd party perform vulnerability scans or penetration testing done on your computer network at least once a
                     year?"
-          response={this.state.securityScans}
-          yesClick={() => this.setState({ securityScans: true })}
-          noClick={() => this.setState({ securityScans: false })}
+          response={
+            typeof this.props.business_info.security_scans === 'undefined'
+              ? null
+              : this.props.business_info.security_scans
+          }
+          yesClick={() => this.onFieldChange(customEvent({ name: 'security_scans', value: true }))}
+          noClick={() => this.onFieldChange(customEvent({ name: 'security_scans', value: false }))}
         />
 
         <ButtonGroup
           label="Do you have revenue generating permanent physical locations outside the US?"
-          response={this.state.international}
-          yesClick={() => this.setState({ international: true })}
-          noClick={() => this.setState({ international: false })}
+          response={
+            typeof this.props.business_info.international === 'undefined'
+              ? null
+              : this.props.business_info.international
+          }
+          yesClick={() => this.onFieldChange(customEvent({ name: 'international', value: true }))}
+          noClick={() => this.onFieldChange(customEvent({ name: 'international', value: false }))}
         />
 
         <ButtonGroup
           label="Do you use social media to promote or market your business?"
-          response={this.state.useSocialMedia}
-          yesClick={() => this.setState({ useSocialMedia: true })}
-          noClick={() => this.setState({ useSocialMedia: false })}
+          response={
+            typeof this.props.business_info.use_social_media === 'undefined'
+              ? null
+              : this.props.business_info.use_social_media
+          }
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'use_social_media', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'use_social_media', value: false }))
+          }
         />
 
         <ButtonGroup
           label="Do you block or restrict your employees from accessing their personal accounts on social media sites?"
-          response={this.state.restrictSocialMedia}
-          yesClick={() => this.setState({ restrictSocialMedia: true })}
-          noClick={() => this.setState({ restrictSocialMedia: false })}
+          response={
+            typeof this.props.business_info.restrict_social_media === 'undefined'
+              ? null
+              : this.props.business_info.restrict_social_media
+          }
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'restrict_social_media', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'restrict_social_media', value: false }))
+          }
         />
 
         <Link to="./data">
