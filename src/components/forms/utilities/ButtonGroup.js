@@ -20,8 +20,6 @@ class ButtonGroup extends React.Component {
   };
 
   render() {
-    console.log('response: ', this.props.response);
-
     return (
       <ButtonGroupLayout
         label={this.props.label}

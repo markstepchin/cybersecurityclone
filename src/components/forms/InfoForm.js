@@ -10,18 +10,6 @@ import NextButton from '../layout/NextButton';
 import { updateField } from '../../ducks/fields';
 
 class InfoForm extends React.Component {
-  state = {
-    businessName: '',
-    businessType: '',
-    projectedRevenue: '',
-    numEmployees: '',
-    subjectToPCI: false,
-    subjectToHIPPA: false,
-    hadPreviousInsurance: null,
-    previousInsuranceDate: '',
-    test: true
-  };
-
   onFieldChange = ({ target: { value, name } }) => {
     this.props.dispatch(updateField({ business_info: { [name]: value } }));
   };
@@ -112,7 +100,11 @@ class InfoForm extends React.Component {
 
         <ButtonGroup
           label="Have you previously purchased a Cyber Insurance Policy?"
-          response={this.props.business_info.had_previous_insurance || false}
+          response={
+            typeof this.props.business_info.had_previous_insurance === 'undefined'
+              ? null
+              : this.props.business_info.had_previous_insurance
+          }
           yesClick={() => {
             const event = {};
             event.target = {};

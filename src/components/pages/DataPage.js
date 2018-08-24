@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
@@ -7,7 +6,6 @@ import Footer from '../layout/Footer';
 import ProgressBarData from '../layout/ProgressBarData';
 import SideBar from '../layout/SideBar';
 import DataForm from '../forms/DataForm';
-import NextButton from '../layout/NextButton';
 
 const DataPage = () => (
   <React.Fragment>

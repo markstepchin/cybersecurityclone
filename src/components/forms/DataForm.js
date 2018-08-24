@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import CheckBoxInput from './utilities/CheckBoxInput';
 import CheckBoxGroup from './utilities/CheckBoxGroup';
 import ButtonGroup from './utilities/ButtonGroup';
@@ -238,4 +239,8 @@ class DataForm extends React.Component {
   }
 }
 
-export default DataForm;
+const mapStateToProps = ({ fields: { business_info } }) => ({
+  business_info
+});
+
+export default connect(mapStateToProps)(DataForm);

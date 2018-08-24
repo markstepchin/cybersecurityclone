@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import PageLayout from '../layout/PageLayout';
 import Header from '../layout/Header';
@@ -7,7 +6,6 @@ import Footer from '../layout/Footer';
 import ProgressBarContact from '../layout/ProgressBarContact';
 import SideBar from '../layout/SideBar';
 import ContactForm from '../forms/ContactForm';
-import NextButton from '../layout/NextButton';
 
 const ContactPage = () => (
   <React.Fragment>

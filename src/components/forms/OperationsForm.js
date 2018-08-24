@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import ButtonGroup from './utilities/ButtonGroup';
 import NextButton from '../layout/NextButton';
 
@@ -103,4 +104,9 @@ class OperationsForm extends React.Component {
     );
   }
 }
-export default OperationsForm;
+
+const mapStateToProps = ({ fields: { business_info } }) => ({
+  business_info
+});
+
+export default connect(mapStateToProps)(OperationsForm);
