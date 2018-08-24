@@ -83,20 +83,12 @@ class InfoForm extends React.Component {
               ? null
               : this.props.business_info.had_previous_insurance
           }
-          yesClick={() => {
-            const event = {};
-            event.target = {};
-            event.target.name = 'had_previous_insurance';
-            event.target.value = true;
-            this.onFieldChange(event);
-          }}
-          noClick={() => {
-            const event = {};
-            event.target = {};
-            event.target.name = 'had_previous_insurance';
-            event.target.value = false;
-            this.onFieldChange(event);
-          }}
+          yesClick={() =>
+            this.onFieldChange(customEvent({ name: 'had_previous_insurance', value: true }))
+          }
+          noClick={() =>
+            this.onFieldChange(customEvent({ name: 'had_previous_insurance', value: false }))
+          }
         />
 
         {this.props.business_info.had_previous_insurance ? (
