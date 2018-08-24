@@ -1,6 +1,7 @@
-import React from "react";
-import QuotesPageLayout from "../layout/QuotesPageLayout";
-import QuoteCard from "../layout/QuoteCard";
+import React from 'react';
+import { connect } from 'react-redux';
+import QuotesPageLayout from '../layout/QuotesPageLayout';
+import QuoteCard from '../layout/QuoteCard';
 
 class QuotesPage extends React.Component {
   constructor() {
@@ -11,34 +12,13 @@ class QuotesPage extends React.Component {
   }
 
   componentDidMount() {
-    const data = {
-      formData: [
-        {
-          index: 0,
-          data: "test company"
-        },
-        {
-          index: 1,
-          data: "test type"
-        },
-        {
-          index: 2,
-          data: "1995"
-        }
-      ]
-    };
-    const url =
-      "https://us-central1-database-788c5.cloudfunctions.net/getPolicies";
-
-    // fetch(url)
-    // .then(res => res.json())
-    // .then(data => this.setState({ policies: data.policies }));
+    const url = 'https://us-central1-database-788c5.cloudfunctions.net/getPolicies';
 
     fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data), // data can be `string` or {object}!
+      method: 'POST',
+      body: JSON.stringify(this.props.fields),
       headers: {
-        "Content-Type": "application/json"
+        'Content-Type': 'application/json'
       }
     })
       .then(res => res.json())
@@ -47,8 +27,6 @@ class QuotesPage extends React.Component {
 
   render() {
     if (this.state.policies === null) return null;
-
-    console.log(this.state.policies);
 
     return (
       <QuotesPageLayout
@@ -80,4 +58,8 @@ class QuotesPage extends React.Component {
   }
 }
 
-export default QuotesPage;
+const mapStateToProps = ({ fields }) => ({
+  fields
+});
+
+export default connect(mapStateToProps)(QuotesPage);
