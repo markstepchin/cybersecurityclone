@@ -6,7 +6,6 @@ class CheckBoxGroup extends React.Component {
     React.Children.map(children, child => {
       child.props.unClick();
     });
-    // console.log(event);
   };
 
   noChildChecked = children => {
@@ -30,7 +29,7 @@ class CheckBoxGroup extends React.Component {
           {this.props.noneOption ? (
             <CheckBoxInput
               label="None"
-              checked={this.noChildChecked(this.props.children)}
+              checked={this.props.childrenNull ? false : this.noChildChecked(this.props.children)}
               onChange={() => this.uncheckChildren(this.props.children)}
             />
           ) : null}

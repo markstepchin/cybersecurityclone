@@ -56,7 +56,14 @@ class InfoForm extends React.Component {
           onChange={this.onFieldChange}
         />
 
-        <CheckBoxGroup label="Are you subject to:" noneOption={true}>
+        <CheckBoxGroup
+          label="Are you subject to:"
+          noneOption={true}
+          childrenNull={
+            typeof this.props.business_info.subject_to_PCI === 'undefined' &&
+            typeof this.props.business_info.subject_to_PCI === 'undefined'
+          }
+        >
           <CheckBoxInput
             label="PCI/DCI Compliance"
             checked={this.props.business_info.subject_to_PCI || false}
