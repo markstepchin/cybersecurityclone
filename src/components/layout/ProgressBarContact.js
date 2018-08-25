@@ -25,19 +25,19 @@ const ProgressBarContact = () => (
 
     <div className="container d-block d-md-none d-lg-none d-xl-none" align="center">
       <div className="row mx-0">
-        <div className="col my-3" align="center">
+        <div className="col px-0 my-3" align="center">
           <div className="circle complete-circle small-circle inline-block">1</div>
           <p className="sm-progress-text current-text">info</p>
         </div>
-        <div className="col my-3" align="center">
+        <div className="col px-0 my-3" align="center">
           <div className="circle complete-circle small-circle inline-block">2</div>
           <p className="sm-progress-text current-text">operations</p>
         </div>
-        <div className="col my-3" align="center">
+        <div className="col px-0 my-3" align="center">
           <div className="circle complete-circle small-circle inline-block">3</div>
           <p className="sm-progress-text current-text">data</p>
         </div>
-        <div className="col my-3" align="center">
+        <div className="col px-0 my-3" align="center">
           <div className="circle current-circle small-circle inline-block">4</div>
           <p className="sm-progress-text current-text">contact</p>
         </div>

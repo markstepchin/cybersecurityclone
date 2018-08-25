@@ -26,8 +26,6 @@ class QuotesPage extends React.Component {
   }
 
   render() {
-    if (this.state.policies === null) return null;
-
     return (
       <QuotesPageLayout
         titleText="Your Cyber Insurance Matches"
@@ -35,24 +33,28 @@ class QuotesPage extends React.Component {
             like yours. Highlighted is the one that we think is best for your business based on breadth of coverage,
             liability limit, and overall value."
       >
-        <QuoteCard
-          img="./img/bcs.jpg"
-          alt="bcs logo"
-          title={`${this.state.policies[0].coverages.length} Coverages`}
-          coverages={this.state.policies[0].coverages}
-        />
-        <QuoteCard
-          img="./img/hiscox2.jpg"
-          alt="hiscox logo"
-          title={`${this.state.policies[1].coverages.length} Coverages`}
-          coverages={this.state.policies[1].coverages}
-        />
-        <QuoteCard
-          img="./img/chubb.jpg"
-          alt="chubb logo"
-          title={`${this.state.policies[2].coverages.length} Coverages`}
-          coverages={this.state.policies[2].coverages}
-        />
+        {this.state.policies !== null ? (
+          <React.Fragment>
+            <QuoteCard
+              img="./img/bcs.jpg"
+              alt="bcs logo"
+              title={`${this.state.policies[0].coverages.length} Coverages`}
+              coverages={this.state.policies[0].coverages}
+            />
+            <QuoteCard
+              img="./img/hiscox2.jpg"
+              alt="hiscox logo"
+              title={`${this.state.policies[1].coverages.length} Coverages`}
+              coverages={this.state.policies[1].coverages}
+            />
+            <QuoteCard
+              img="./img/chubb.jpg"
+              alt="chubb logo"
+              title={`${this.state.policies[2].coverages.length} Coverages`}
+              coverages={this.state.policies[2].coverages}
+            />
+          </React.Fragment>
+        ) : null}
       </QuotesPageLayout>
     );
   }
